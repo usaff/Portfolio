@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Resources Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        background: #edede9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #2e3b55;
+      }
+      h2 {
+        color: #2e3b55;
+        border-bottom: 2px solid #2e3b55;
+        padding-bottom: 5px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .image-container {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: block;
+        margin: 20px auto;
+      }
+
+      /* Hover Effect */
+      .image-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .image-container img {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      ul {
+        margin: 10px 0;
+        padding-left: 20px;
+      }
+      .code-block {
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">← Return Back</button>
+  </nav>
+
+  <style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Slight background for contrast */
+      padding: 10px 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background-color: #61afef;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 20px; /* Adds spacing from the left */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #4b8ec9;
+      transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+      padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1
+        style="
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+          font-size: 32px;
+          margin-top: 20px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+          background: linear-gradient(90deg, #007bff, #00d4ff);
+          color: transparent;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        "
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png"
+          alt="HR Icon"
+          style="height: 50px"
+        />
+        Human Resources Dashboard
+      </h1>
+
+      <div class="image-container">
+        <img src="dashboard.PNG" alt="Human Resources Dashboard" />
+      </div>
+
+      <h2>Project Overview</h2>
+      <p>
+        The <strong>Human Resources Dashboard</strong> provides a detailed
+        analysis of employee statistics, including hiring trends, terminations,
+        demographics, income, and performance. It enables HR professionals to
+        track workforce composition, assess department-wise employee
+        distribution, and analyze salary trends.
+      </p>
+
+      <h2>Business Problems Addressed</h2>
+      <ul>
+        <li>
+          <strong>Employee Tracking:</strong> Identifies the total active
+          employees, hires, and terminations.
+        </li>
+        <li>
+          <strong>Demographic Insights:</strong> Provides gender distribution
+          and employee age trends.
+        </li>
+        <li>
+          <strong>Education & Performance:</strong> Shows how educational
+          background influences employee performance.
+        </li>
+        <li>
+          <strong>Income Analysis:</strong> Examines salary trends by education
+          level and gender.
+        </li>
+        <li>
+          <strong>Department Analysis:</strong> Highlights employee distribution
+          across departments.
+        </li>
+        <li>
+          <strong>Workforce Longevity:</strong> Calculates employee tenure to
+          understand turnover rates.
+        </li>
+      </ul>
+
+      <h2>Key Metrics & Visuals</h2>
+
+      <h3>Overview Section</h3>
+      <ul>
+        <li>
+          <strong>Total Active Employees:</strong> Displays the number of
+          employees currently working.
+        </li>
+        <li>
+          <strong>Total Hires & Terminations:</strong> Compares hiring and
+          termination trends.
+        </li>
+        <li>
+          <strong>Department-wise Distribution:</strong> Shows employee counts
+          in various departments.
+        </li>
+        <li>
+          <strong>Location Breakdown:</strong> Visualizes workforce distribution
+          across different locations.
+        </li>
+      </ul>
+
+      <h3>Demographics Section</h3>
+      <ul>
+        <li>
+          <strong>Gender Distribution:</strong> Shows the percentage of male and
+          female employees.
+        </li>
+        <li>
+          <strong>Education & Age Trends:</strong> Analyzes employee education
+          levels and age groups.
+        </li>
+      </ul>
+
+      <h3>Education & Performance Section</h3>
+      <ul>
+        <li>
+          <strong>Correlation Between Education & Performance:</strong>
+          Determines if employees with higher education perform better.
+        </li>
+      </ul>
+
+      <h3>Income Analysis</h3>
+      <ul>
+        <li>
+          <strong>Salary by Education & Gender:</strong> Compares income levels
+          based on qualifications and gender.
+        </li>
+        <li>
+          <strong>Age vs. Salary:</strong> Analyzes salary trends based on
+          employee age.
+        </li>
+      </ul>
+
+      <h2>Explanation of Calculated Fields</h2>
+
+      <h3>1. Employee Status</h3>
+      <div class="code-block">
+        Employee Status =<br />
+        IF( ISBLANK( HR[Termdate] ), "Hired", "Terminated" )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Categorizes employees as either "Hired" or
+        "Terminated" based on whether they have a termination date.
+      </p>
+
+      <h3>2. % Highlight Max Calculation</h3>
+      <div class="code-block">
+        Highlight Max =<br />
+        VAR MaxHired = MAXX( ALL( HR ), [% Total Hired] )<br />
+        RETURN IF( [% Total Hired] = MaxHired, 1, 0 )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Highlights the department with the highest
+        hiring percentage.
+      </p>
+
+      <h3>3. Percentage of Total Hired</h3>
+      <div class="code-block">
+        % Total Hired =<br />
+        DIVIDE( [Total Hired], CALCULATE( [Total Hired], ALL( HR ) ) )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Computes the proportion of hires in a specific
+        department compared to total hires.
+      </p>
+
+      <h3>4. Percentage of Total Terminated</h3>
+      <div class="code-block">
+        % Total Terminated =<br />
+        DIVIDE( [Total Terminated], CALCULATE( [Total Terminated], ALL( HR ) ) )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Calculates the percentage of terminations in
+        each department.
+      </p>
+
+      <h3>5. Employee Age Calculation</h3>
+      <div class="code-block">
+        Employee Age =<br />
+        DATEDIFF( HR[Birthdate], TODAY(), YEAR )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Determines the current age of an employee.
+      </p>
+
+      <h3>6. Maximum Hires Highlight</h3>
+      <div class="code-block">
+        Max Hired Dept =<br />
+        VAR MaxHires = MAXX( ALL( HR ), [Total Hired] )<br />
+        RETURN IF( [Total Hired] = MaxHires, 1, 0 )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Identifies the department with the highest
+        number of hires.
+      </p>
+
+      <h3>7. Employee Tenure Calculation</h3>
+      <div class="code-block">
+        Employee Tenure =<br />
+        IF( ISBLANK( HR[Termdate] ),<br />
+        DATEDIFF( HR[Hiredate], TODAY(), YEAR ),<br />
+        DATEDIFF( HR[Hiredate], HR[Termdate], YEAR ) )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Calculates the number of years an employee has
+        worked in the company.
+      </p>
+
+      <h3>8. Top Hired Department (Rank 1)</h3>
+      <div class="code-block">
+        Rank 1 Department =<br />
+        IF( RANKX( ALL( HR ), [% Total Hired], , DESC ) = 1, 1, 0 )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Identifies the department with the highest
+        hiring percentage.
+      </p>
+
+      <h3>9. Second Top Hired Department (Rank 2)</h3>
+      <div class="code-block">
+        Rank 2 Department =<br />
+        IF( RANKX( ALL( HR ), [% Total Hired], , DESC ) = 2, 1, 0 )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Identifies the department with the second
+        highest hiring percentage.
+      </p>
+
+      <h3>10. Total Active Employees Count</h3>
+      <div class="code-block">
+        Total Active Employees =<br />
+        CALCULATE( COUNT( HR[Employee ID] ), ISBLANK( HR[Termdate] ) )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Counts the number of employees currently
+        working.
+      </p>
+
+      <h3>11. Total Employees Count</h3>
+      <div class="code-block">
+        Total Employees =<br />
+        COUNT( HR[Employee ID] )
+      </div>
+      <p><strong>Purpose:</strong> Counts the total number of employees.</p>
+
+      <h3>12. Total Terminated Employees Count</h3>
+      <div class="code-block">
+        Total Terminated Employees =<br />
+        CALCULATE( COUNT( HR[Employee ID] ), NOT( ISBLANK( HR[Termdate] ) ) )
+      </div>
+      <p>
+        <strong>Purpose:</strong> Counts the number of employees who have left
+        the company.
+      </p>
+
+      <h2>Insights & Recommendations</h2>
+      <ul>
+        <li>
+          <strong>Retention Strategy:</strong> If termination rates are high, HR
+          should analyze attrition patterns and implement engagement programs.
+        </li>
+        <li>
+          <strong>Salary Adjustments:</strong> If a gender pay gap exists, HR
+          must review compensation policies for fairness.
+        </li>
+        <li>
+          <strong>Performance & Education:</strong> If highly educated employees
+          underperform, training programs may be necessary.
+        </li>
+        <li>
+          <strong>Departmental Hiring Focus:</strong> Departments with high
+          turnover should refine hiring strategies.
+        </li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        The <strong>Human Resources Dashboard</strong> provides valuable
+        insights into workforce trends, empowering HR teams to optimize hiring,
+        retention, salary structures, and performance management through
+        data-driven strategies.
+      </p>
+    </div>
+  </body>
+</html>

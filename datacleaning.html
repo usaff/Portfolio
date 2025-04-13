@@ -1,0 +1,276 @@
+
+<style>body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.project-details {
+    background-color: #edede9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #000000;border-bottom: 3px solid #2e3b55;
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;border-bottom: 3px solid #2e3b55;
+}
+
+h3 {
+    font-size: 24px;
+    margin-top: 20px;border-bottom: 3px solid #2e3b55;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    font-family: 'Playfair Display', serif;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    margin: 20px auto;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-details {
+        padding: 15px;
+    }
+}
+</style><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Cleaning in Power Query</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <button onclick="history.back()" class="back-button">
+            ← Return Back
+        </button>
+    </nav>
+    
+    <style>
+        /* Navigation Bar to Hold Button */
+        .nav-bar {
+            width: 100%;
+            height: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+            padding: 10px 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    
+        /* Back Button Styling */
+        .back-button {
+            background-color: #61afef;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 20px; /* Adds spacing from the left */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .back-button:hover {
+            background-color: #4b8ec9;
+            transform: scale(1.05);
+        }
+    
+        /* Ensure Body has Padding to Prevent Overlap */
+        body {
+            padding-top: 70px; /* Creates space so button does not overlap h1 */
+        }
+    
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .back-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                margin-left: 15px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .back-button {
+                font-size: 14px;
+                padding: 8px 16px;
+                width: auto;
+                margin-left: 10px;
+            }
+        }
+    </style>
+    
+    <body>
+    
+        <section class="project-details">
+           <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h1 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 32px;
+margin-top: 20px;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-weight: bold;
+background: linear-gradient(90deg, #1a73e8, #34a853);
+color: #1a73e8; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 15px;
+">
+<i class="bi bi-table" style="font-size: 40px; color: #1a73e8;"></i>
+Data Cleaning in Power Query
+<i class="bi bi-tools" style="font-size: 40px; color: #34a853;"></i>
+</h1>
+
+
+        
+<body>
+    <h2>Overview</h2>
+    <p>This report focuses on <strong>data cleaning and transformation</strong> in Power BI/Excel using Power Query. The goal is to standardize, clean, and prepare raw data for reporting and analysis. It ensures data consistency, removes errors, and enhances overall data quality.</p>
+    
+    <h3>Key Data Sources:</h3>
+    <ul>
+        <li>Excel spreadsheets with raw transactional or operational data.</li>
+        <li>External data sources (if applicable) integrated via Power Query.</li>
+    </ul>
+
+    <h2>Steps Taken</h2>
+    <h3>1. Data Import</h3>
+    <ul>
+        <li>Loaded raw data into Power Query from the Excel sheet "Data Cleanning."</li>
+        <li>Checked data types and formats to ensure correct interpretation.</li>
+    </ul>
+
+    <h3>2. Data Cleaning</h3>
+    <ul>
+        <li><strong>Removed duplicates</strong> to avoid redundant records.</li>
+        <li><strong>Handled missing values:</strong>
+            <ul>
+                <li>Filled missing data where possible.</li>
+                <li>Removed rows with excessive missing values.</li>
+            </ul>
+        </li>
+        <li><strong>Standardized column names</strong> for better readability and consistency.</li>
+        <li><strong>Trimmed and cleaned text fields</strong> to remove leading/trailing spaces.</li>
+    </ul>
+
+    <h3>3. Data Transformation</h3>
+    <ul>
+        <li><strong>Split and merge columns</strong> to extract relevant information.</li>
+        <li><strong>Created calculated columns</strong> for enhanced insights.</li>
+        <li><strong>Formatted date/time fields</strong> to standard formats.</li>
+        <li><strong>Applied data filtering</strong> to retain only relevant records.</li>
+    </ul>
+
+    <h3>4. Data Modeling</h3>
+    <ul>
+        <li>Established relationships between tables (if multiple tables are present).</li>
+        <li>Defined data types for optimized performance.</li>
+    </ul>
+
+    <h3>5. Visualization (If applicable)</h3>
+    <ul>
+        <li>Created summary tables and charts for data insights.</li>
+        <li>Applied conditional formatting for better readability.</li>
+    </ul>
+
+
+
+    <h2>Performance Optimizations</h2>
+    <ul>
+        <li><strong>Optimized data types</strong> to reduce memory usage.</li>
+        <li><strong>Removed unnecessary columns</strong> to improve query performance.</li>
+        <li><strong>Reduced calculated columns in favor of measures</strong> to enhance efficiency.</li>
+        <li><strong>Used query folding</strong> to push transformations back to the source when possible.</li>
+    </ul>
+
+    <h2>Future Improvements</h2>
+    <ul>
+        <li><strong>Automate data refresh</strong> for real-time updates.</li>
+        <li><strong>Implement error-handling measures</strong> to detect and log data issues.</li>
+        <li><strong>Enhance data validation</strong> with additional rules and constraints.</li>
+        <li><strong>Expand data sources</strong> to enrich analysis.</li>
+    </ul>
+
+    <h2>Best Practices & Considerations</h2>
+    <ul>
+        <li>Maintain a <strong>consistent naming convention</strong> for columns and queries.</li>
+        <li>Document all transformations for <strong>auditability</strong> and <strong>collaboration</strong>.</li>
+        <li>Minimize the use of calculated columns where <strong>DAX measures</strong> can be used.</li>
+        <li>Optimize query performance using <strong>data reduction techniques</strong>.</li>
+        <li>Ensure <strong>data security and compliance</strong> when handling sensitive information.</li>
+    </ul>
+
+    <hr>
+    <p>This README serves as a guide for understanding the report's structure and methodology. Future updates should be documented to maintain clarity and usability.</p>
+</body>
+</html>
+

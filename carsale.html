@@ -1,0 +1,441 @@
+<head>
+    <title>Car Sales Analytics Dashboard</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: none; /* Remove unwanted shadow */
+    margin: 0 auto 50px; /* Adjust margin */
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;border-bottom: 3px solid #2e3b55;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="project-details">
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="back-button">
+                ← Return Back
+            </button>
+        </nav>
+        
+        <style>
+            /* Navigation Bar to Hold Button */
+            .nav-bar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+                padding: 10px 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        
+            /* Back Button Styling */
+            .back-button {
+                background-color: #61afef;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: 20px; /* Adds spacing from the left */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .back-button:hover {
+                background-color: #4b8ec9;
+                transform: scale(1.05);
+            }
+        
+            /* Ensure Body has Padding to Prevent Overlap */
+            body {
+                padding-top: 70px; /* Creates space so button does not overlap h1 */
+            }
+        
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .back-button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .back-button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                    width: auto;
+                    margin-left: 10px;
+                }
+            }
+        </style>
+        
+        <body>
+        
+            <section class="project-details">
+              <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h1 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 28px;
+margin-top: 15px;
+font-weight: bold;
+background: linear-gradient(90deg, #ff5722, #ff9800);
+color: #ff5722; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+">
+<i class="bi bi-car-front-fill" style="font-size: 30px; color: #ff5722;"></i>
+Car Sales Analysis Dashboard
+<i class="bi bi-graph-up" style="font-size: 30px; color: #ff9800;"></i>
+</h1>
+
+        
+        
+
+<br>
+        <h3> Overview</h3>
+        <p>This project is a non-traditional interactive car sales dashboard built in Power BI. It enables users to analyze car sales performance through an engaging, modern visual approach rather than conventional reports. The dashboard incorporates high-quality car images, interactive filters, and dynamic visual storytelling.</p>
+
+        <h3> Dashboard Features</h3>
+        <img src="Car1.PNG" 
+        alt="Car Image" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <ul>
+            <li>Track total sales, growth rate, and pre-booking statistics.</li>
+            <li>Dynamic car images allow users to interact with different models.</li>
+            <li>Toggle between 2019-2022 to analyze yearly trends.</li>
+            <li>Filter sales by Direct Sale, Third Party, and Pre-Book.</li>
+            <li>Analyze customer segments: Replacement, Servicing, and Other categories.</li>
+            <li>Custom DAX formulas power real-time calculations and insights.</li>
+        </ul>
+
+        <h3> Video Demonstration</h3>
+        <p>The video demonstrates the dashboard's functionality, showcasing how users can:</p>
+        <ul>
+            <li>Interact with different car models to see sales trends.</li>
+            <li>Toggle between years (2019-2022) for comparison.</li>
+            <li>Explore sales types and customer segments dynamically.</li>
+            <li>Analyze real-time sales growth and performance metrics.</li>
+        </ul>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Car Sales Analysis Dashboard</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 20px;
+                }
+                h1 {
+                    color: #333;
+                }
+                h2 {
+                    color: #555;
+                }
+                code {
+                    display: block;
+                    background: #f4f4f4;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-family: Consolas, monospace;
+                }
+            </style>
+        </head>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        h3 {
+            color: #444;
+        }
+        code {
+            display: block;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Car Sales Analysis Dashboard</h3>
+    <p>
+        This project offers a detailed analysis of car sales trends, emphasizing vehicle availability based on year and fuel type. By examining historical data, we can identify patterns in consumer demand, shifts in fuel preferences, and market fluctuations. These insights enable car dealerships and manufacturers to optimize inventory management, reduce overstock or shortages, and align their offerings with emerging trends. With a data-driven approach, businesses can make strategic decisions that enhance sales performance, improve supply chain efficiency, and stay competitive in an ever-evolving automotive industry.
+    </p>
+
+    <h2>Why We Are Doing This</h2>
+    <p>
+        The automotive industry is highly competitive and constantly evolving, driven by shifting consumer preferences, technological advancements, and economic factors. With the growing demand for electric vehicles, changing fuel prices, and seasonal sales trends, manufacturers and dealerships must adapt quickly to stay ahead.
+
+        By analyzing historical car availability data, this project helps stakeholders make informed decisions by identifying market trends, optimizing inventory, and predicting consumer demand. Understanding how availability varies by year and fuel type allows businesses to align their strategies with industry shifts, ensuring efficiency and profitability in an ever-changing market.
+        
+        
+    </p>
+
+    <style>
+        /* General Styles */
+        .formula-section {
+            max-width: 100%;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+    
+        h3, h4 {
+            color: black;
+            text-align: left;
+        }
+    
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    
+        p {
+            font-size: 1rem;
+            color: black;
+            text-align: left;
+            margin-top: 5px;
+        }
+    
+        ul {
+            padding-left: 20px;
+        }
+    
+        ul li {
+            margin-bottom: 5px;
+        }
+    
+        /* Code Blocks */
+        .code-block {
+            display: block;
+            background: #f4f4f4;
+            padding: 12px;
+            border-left: 4px solid #007BFF;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: Consolas, monospace;
+            color: #d63384;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            text-align: left;
+        }
+    
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 1.3rem;
+            }
+    
+            h4 {
+                font-size: 1.1rem;
+            }
+    
+            .code-block {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+    
+    <div class="formula-section">
+        <h3>DAX Formulas Explained</h3>
+    
+        <h4>1️⃣ Sales Type Classification</h4>
+        <p>This formula categorizes sales transactions based on the product category:</p>
+        <ul>
+            <li><strong>Office Supplies →</strong> Direct Sale</li>
+            <li><strong>Technology →</strong> Third Party</li>
+            <li><strong>Furniture →</strong> Pre-Book</li>
+        </ul>
+        <p>✔ Helps in filtering and segmenting sales data for detailed insights.</p>
+        <pre class="code-block">
+    New_Categ = SWITCH(Category, 
+        "Office Supplies", "Direct Sale", 
+        "Technology", "Third Party", 
+        "Furniture", "Pre-Book")
+        </pre>
+    
+        <h4>2️⃣ Customer Segment Classification</h4>
+        <p>This formula categorizes customer types into different segments:</p>
+        <ul>
+            <li><strong>Consumer →</strong> Replacement Sales</li>
+            <li><strong>Home Office →</strong> Other Sales</li>
+            <li><strong>Corporate →</strong> Servicing Sales</li>
+        </ul>
+        <p>✔ Helps analyze which customer segment contributes the most to sales.</p>
+        <pre class="code-block">
+    Seg = SWITCH(Segment, 
+        "Consumer", "Replacement", 
+        "Home Office", "Other", 
+        "Corporate", "Servicing")
+        </pre>
+    
+        <h4>3️⃣ Product Category Renaming</h4>
+        <p>This formula renames product categories to make them more intuitive:</p>
+        <ul>
+            <li><strong>Office Supplies →</strong> Digital Watch</li>
+            <li><strong>Furniture →</strong> Analog Watch</li>
+            <li><strong>Technology →</strong> Other</li>
+        </ul>
+        <p>✔ Provides a more user-friendly representation in reports.</p>
+        <pre class="code-block">
+    Category_Switch = SWITCH(Category, 
+        "Office Supplies", "Digital Watch", 
+        "Furniture", "Analog Watch", 
+        "Technology", "Other")
+        </pre>
+    
+        <h4>4️⃣ Year-to-Date (YTD) Sales Calculation</h4>
+        <p>This formula calculates the total sales for the current year up to today’s date:</p>
+        <pre class="code-block">
+    Current_year_sales = CALCULATE(
+        SUM(Sales), 
+        DATESYTD(Order_Date)
+    )
+        </pre>
+        <p>✔ Helps track real-time sales progress.</p>
+    
+        <h4>5️⃣ Year-over-Year Sales Growth</h4>
+        <p>This formula calculates sales growth compared to the previous year in percentage:</p>
+        <ul>
+            <li><strong>Positive value →</strong> Sales have increased.</li>
+            <li><strong>Negative value →</strong> Sales have decreased.</li>
+        </ul>
+        <p>✔ Helps in understanding overall business trends.</p>
+        <pre class="code-block">
+    Sales_growth = DIVIDE(
+        Current_year_sales - Previous_year_sales, 
+        Previous_year_sales
+    )
+        </pre>
+    </div>
+    
+</body>
+</html>
+
+        
+
+        <h3> Dashboard Sections Explained</h3>
+
+        <h3> Car Selection Panel</h3>
+        <ul>
+            <li><strong>Luxury SUV:</strong> High-end SUV sales analysis.</li>
+            <li><strong>Sports Hybrid:</strong> Performance-based hybrid sales.</li>
+            <li><strong>Classic Vintage:</strong> Tracks vintage car sales.</li>
+        </ul>
+
+        <h3>Sales Performance Section</h3>  
+<p>This section provides a comprehensive overview of key <b>sales KPIs</b>, including <b>total revenue, pre-sales performance, and budget tracking</b> Easily monitor how sales are progressing, compare actual performance against targets, and gain insights to drive better business decisions.</p>
+
+
+        <h3>Yearly Sales Toggle</h3>  
+        <p>Users can seamlessly switch between <b>2019, 2020, 2021, and 2022 </b>to compare yearly sales trends. This feature provides a clear <b>year-over-year analysis</b> helping to identify growth patterns, seasonal trends, and overall business performance at a glance.</p>
+        
+
+        <h3>Sales Type Breakdown</h3>  
+        <p>This section provides a clear visualization of <b>Direct Sales</b>, <b>Third-Party Sales</b>, and <b>Pre-Book Sales</b>, helping you understand the contribution of each sales type. Easily compare their performance, identify trends, and make data-driven decisions to optimize your sales strategy.</p>
+        
+
+        <h3>Customer Segmentation</h3>
+        <p>Displays sales performance across Replacement, Servicing, and Other categories.</p>
+
+        <h2> How to Use</h3>
+        <ul>
+            <li>Open the Power BI file.</li>
+            <li>Select a car model to analyze sales impact.</li>
+            <li>Use the year toggle to compare performance across different years.</li>
+            <li>Filter by sales type or customer segment for deeper insights.</li>
+            <li>Observe key metrics like sales growth and performance trends.</li>
+        </ul>
+
+        <h3> Future Improvements</h3>
+        <ul>
+            <li> AI-based Sales Forecasting</li>
+            <li> Real-time Data Integration</li>
+            <li> Enhanced UX with More Animations & Interactions</li>
+        </ul>
+
+        <h2> Feedback & Contributions</h2>
+        <p>We welcome feedback & contributions to enhance this project! 🚀</p>
+    </section>
+</body>

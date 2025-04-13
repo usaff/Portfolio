@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyzing Car Sales Trends</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff; /* Light background for the body */
+        color: #333; /* Darker text color for readability */
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        color: #2c3e50; /* Darker color for the heading */
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        max-width: 1100px; /* Set a max width for the container */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add padding inside the container */
+        background-color: #edede9; /* White background for the container */
+        border-radius: 8px; /* Optional: rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+      }
+
+      .code-container {
+        max-width: 100%;
+        overflow-x: auto;
+        background-color: #2d2d2d; /* Dark background for code blocks */
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px; /* Added margin for spacing */
+      }
+
+      pre {
+        font-size: 14px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+        color: #d1d9e6; /* Light color for code text */
+      }
+
+      code {
+        display: block;
+        color: #87cefa; /* Light blue for code */
+        font-family: Consolas, monospace;
+      }
+
+      .explanation {
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      .explanation p,
+      .explanation ul {
+        color: #2c3e50; /* Darker color for explanation text */
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      .back-button {
+        width: auto;
+        text-align: center;
+        display: inline-block;
+        font-size: 14px;
+        padding: 8px 12px;
+        cursor: pointer;
+        background-color: #4a90e2; /* Button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .back-button:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 0 10px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        pre {
+          font-size: 12px;
+          padding: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .back-button {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+
+        pre {
+          font-size: 12px;
+          padding: 5px;
+        }
+      }
+
+      /* Navigation Bar to Hold Button */
+      .nav-bar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Slight background for contrast */
+        padding: 10px 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      /* Back Button Styling */
+      .back-button {
+        background-color: #61afef;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 20px; /* Adds spacing from the left */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-button:hover {
+        background-color: #4b8ec9;
+        transform: scale(1.05);
+      }
+
+      /* Ensure Body has Padding to Prevent Overlap */
+      body {
+        padding-top: 70px; /* Creates space so button does not overlap h1 */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <button onclick="history.back()" class="back-button">
+        ← Return Back
+      </button>
+    </nav>
+
+    <div class="container">
+      <!-- Start of the container -->
+      <!-- Bootstrap Icons CDN -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      />
+
+      <h3
+        style="
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+          font-size: 38px;
+          margin-top: 15px;
+          font-weight: bold;
+          background: linear-gradient(90deg, #2196f3, #ff9800);
+          color: #2196f3; /* Fallback color */
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+        "
+      >
+        <i
+          class="bi bi-car-front-fill"
+          style="font-size: 30px; color: #2196f3"
+        ></i>
+        Analyzing Car Sales Trends
+        <i
+          class="bi bi-graph-up-arrow"
+          style="font-size: 30px; color: #ff9800"
+        ></i>
+      </h3>
+
+      <h3>Introduction (Why We Are Doing This)</h3>
+      <p>
+        Understanding car sales trends is essential for assessing market demand,
+        pricing patterns, and fuel type preferences. Raw data alone does not
+        provide actionable insights, so this project leverages SQL queries to
+        analyze car availability, sales trends, and key factors affecting
+        pricing. By structuring and processing the data, we can uncover
+        meaningful patterns that help businesses and consumers make informed
+        decisions.
+      </p>
+      <h3>Project Description</h3>
+      <p>
+        This project involves analyzing car sales data using SQL queries to
+        explore key metrics such as car availability by year, fuel type
+        distribution, and pricing trends. It includes queries to determine the
+        total number of available cars, track the impact of fuel types over
+        time, and identify high-performing car models. The analysis helps in
+        understanding depreciation trends, brand performance, and customer
+        preferences in the automotive market.
+      </p>
+      <div class="code-container">
+        <pre><code class="language-sql">
+CREATE SCHEMA cars;
+USE cars;
+
+SELECT *  
+FROM `car dekho`;
+
+SELECT count(*) FROM `car dekho`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          The <code>COUNT(*)</code> function counts the total number of rows in
+          the <code>car dekho</code> table. It does not filter anything, meaning
+          it gives the total number of cars listed in the database.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps determine the total number
+          of records in the dataset. If the number is too large or too small, it
+          could indicate data inconsistencies or missing records.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- HOW MANY CARS WILL BE AVAILABLE IN 2023 --
+SELECT count(*)
+FROM `car dekho`
+WHERE `year` = 2023;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          The <code>WHERE year = 2023</code> condition filters the table to
+          include only cars manufactured in 2023.
+        </p>
+        <p>
+          <code>COUNT(*)</code> then counts the number of rows that meet this
+          condition.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps determine how many new
+          cars from the latest model year are available.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- HOW MANY CARS ARE AVAILABLE IN 2020, 2021, 2022 --
+SELECT count(*)
+FROM `car dekho`
+WHERE year IN (2020, 2021, 2022)
+GROUP BY `year`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          The <code>WHERE year IN (2020, 2021, 2022)</code> condition filters
+          cars from these specific years.
+        </p>
+        <p><code>GROUP BY year</code> groups the results by each year.</p>
+        <p>
+          <code>COUNT(*)</code> then counts how many cars belong to each of
+          these years separately.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This provides a breakdown of cars
+          available for these years, helping compare trends.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- PRINT THE TOTAL OF ALL CARS BY YEAR --
+SELECT `year`, count(*)        
+FROM `car dekho`
+GROUP BY `year`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>GROUP BY year</code> groups the cars based on their
+          manufacturing year.
+        </p>
+        <p>
+          <code>COUNT(*)</code> calculates the total number of cars for each
+          year.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This allows us to analyze trends and
+          see which years have more listed cars.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- HOW MANY DIESEL CARS WILL BE AVAILABLE IN 2020 --
+SELECT count(*)
+FROM `car dekho`
+WHERE `fuel` = 'diesel' AND `year` = 2020;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>WHERE fuel = 'diesel'</code> filters the table to include only
+          diesel cars.
+        </p>
+        <p>
+          <code>AND year = 2020</code> ensures that only cars from 2020 are
+          counted.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps analyze fuel trends and
+          availability.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- PRINT ALL THE FUEL CARS (PETROL, DIESEL, CNG) BY YEAR --
+SELECT `fuel`, `year`, COUNT(*)
+FROM `car dekho`
+GROUP BY `fuel`, `year`
+ORDER BY `fuel`, `year`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>GROUP BY fuel, year</code> groups cars based on both fuel type
+          and year.
+        </p>
+        <p>
+          <code>COUNT(*)</code> counts the number of cars within each group.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps analyze fuel trends over
+          the years.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- IDENTIFY THE YEAR WITH MORE THAN 100 CARS --
+SELECT `year`, COUNT(*) AS total_cars
+FROM `car dekho`
+GROUP BY `year`
+HAVING total_cars > 100;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>HAVING total_cars > 100</code> filters years where more than 100
+          cars are listed.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This highlights high-production
+          years.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- ALL CARS COUNT DETAILS BETWEEN 2015 AND 2023 --
+SELECT `year`, COUNT(*) 
+FROM `car dekho`
+WHERE `year` BETWEEN 2015 AND 2023
+GROUP BY `year`
+ORDER BY `year`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          The <code>BETWEEN 2015 AND 2023</code> condition filters data for cars
+          manufactured between these years.
+        </p>
+        <p>
+          <code>GROUP BY year</code> ensures we count cars for each specific
+          year separately.
+        </p>
+        <p>
+          <code>ORDER BY year</code> sorts the output in ascending order, making
+          trends clearer.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps analyze the number of cars
+          available per year and understand how production fluctuates over time.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Which car brands have the highest average selling price? --
+SELECT Name, AVG(selling_price) AS avg_selling_price
+FROM `car dekho`
+GROUP BY Name
+ORDER BY avg_selling_price DESC;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>AVG(selling_price)</code> calculates the average selling price
+          for each car brand.
+        </p>
+        <p><code>GROUP BY Name</code> groups results by car brand.</p>
+        <p>
+          <code>ORDER BY avg_selling_price DESC</code> sorts the brands with the
+          highest average prices at the top.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This identifies premium brands and
+          helps understand pricing trends across different manufacturers.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- What is the average selling price by fuel type and transmission type? --
+SELECT fuel, transmission, AVG(selling_price) AS avg_selling_price
+FROM `car dekho`
+GROUP BY fuel, transmission
+ORDER BY fuel, transmission;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          This query groups cars by both fuel type (Petrol, Diesel, CNG) and
+          transmission type (Automatic, Manual).
+        </p>
+        <p>
+          <code>AVG(selling_price)</code> calculates the average selling price
+          for each combination.
+        </p>
+        <p>
+          <code>ORDER BY fuel, transmission</code> organizes the output neatly
+          for analysis.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps compare whether automatic
+          or manual cars tend to have higher prices, and how fuel type affects
+          value.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Cars manufactured in 2020 or later with km_driven < 20,000, sorted by selling price descending --
+SELECT `Name`, selling_price, km_driven, `year`
+FROM `car dekho`
+WHERE `year` >= 2020 AND km_driven < 20000
+ORDER BY selling_price DESC;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          The <code>WHERE year >= 2020</code> filter ensures we only select
+          newer cars.
+        </p>
+        <p>
+          <code>km_driven < 20000</code> ensures low-mileage cars are selected.
+        </p>
+        <p>
+          <code>ORDER BY selling_price DESC</code> sorts the most expensive cars
+          at the top.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps find high-value used cars
+          with minimal usage.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Identify the top 5 cars with the highest max_power (bhp) and their corresponding mileage --
+SELECT `Name`, max_power, mileage 
+FROM `car dekho`
+ORDER BY max_power DESC
+LIMIT 5;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>ORDER BY max_power DESC</code> ranks cars by their horsepower.
+        </p>
+        <p>
+          <code>LIMIT 5</code> ensures only the top 5 results are displayed.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps identify the most powerful
+          cars in the dataset.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Compare the average km_driven and selling_price for cars sold by "Dealer" vs "Individual" --
+SELECT seller_type, AVG(km_driven) AS avg_km_driven, AVG(selling_price) AS avg_selling_price
+FROM `car dekho`
+GROUP BY seller_type;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>AVG(km_driven)</code> calculates the average distance driven for
+          each seller type.
+        </p>
+        <p>
+          <code>AVG(selling_price)</code> determines how prices vary between
+          dealers and individuals.
+        </p>
+        <p>
+          <code>GROUP BY seller_type</code> categorizes data by seller type.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps determine whether dealers
+          or individual sellers offer better value.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Categorize cars as "Premium", "Family", or "Budget" based on engine size, seats, and fuel type --
+CREATE VIEW car_category AS
+SELECT Name,
+`engine`,
+`seats`,
+`fuel`,
+CASE
+WHEN `engine` > 2.5 AND seats > 5 AND `fuel` = 'Petrol' THEN 'Premium'
+WHEN `engine` BETWEEN 1.5 AND 2.5 AND seats BETWEEN 4 AND 5 AND `fuel` IN ('Diesel', 'Petrol') THEN 'Family'
+ELSE 'Budget'
+END AS category
+FROM `car dekho`;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>The <code>CASE</code> statement categorizes cars based on:</p>
+        <ul>
+          <li>
+            <strong>Premium</strong>: Large engine (>2.5L), more than 5 seats,
+            Petrol.
+          </li>
+          <li>
+            <strong>Family</strong>: Mid-range engine (1.5L-2.5L), 4-5 seats,
+            Diesel or Petrol.
+          </li>
+          <li><strong>Budget</strong>: All other cars.</li>
+        </ul>
+        <p>
+          <code>CREATE VIEW</code> stores this categorization as a virtual table
+          for future use.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps classify cars into
+          meaningful segments for buyers.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Year-over-Year Trend Analysis (Selling Price & Mileage) --
+SELECT `year`, AVG(selling_price) AS avg_selling_price, AVG(mileage) AS avg_mileage
+FROM `car dekho`
+GROUP BY `year`
+ORDER BY `year` DESC;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>AVG(selling_price)</code> calculates the average price of cars
+          for each year.
+        </p>
+        <p>
+          <code>AVG(mileage)</code> gives the average mileage (fuel efficiency)
+          of cars per year.
+        </p>
+        <p>
+          <code>ORDER BY year DESC</code> ensures the most recent data appears
+          first.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps analyze pricing trends and
+          improvements in fuel efficiency over time.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Top 5 Cars with Best Mileage and Power --
+SELECT `NAME`, mileage , max_power
+FROM `car dekho`
+ORDER BY mileage DESC, max_power DESC
+LIMIT 5;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>ORDER BY mileage DESC, max_power DESC</code> ranks the most
+          fuel-efficient and powerful cars at the top.
+        </p>
+        <p>
+          <code>LIMIT 5</code> ensures only the top 5 results are displayed.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps buyers find cars with the
+          best fuel efficiency and performance.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Calculate depreciation rate of cars (2025) by fuel type --
+SELECT fuel, `year`,
+AVG(selling_price) AS avg_selling_price,
+(MAX(selling_price) - MIN(selling_price)) / (2025 - MIN(year)) AS avg_depreciation_rate
+FROM `car dekho`
+GROUP BY `year`, fuel;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          This query calculates the depreciation rate for cars by fuel type.
+        </p>
+        <p>
+          The formula
+          <code
+            >(MAX(selling_price) - MIN(selling_price)) / (2025 -
+            MIN(year))</code
+          >
+          estimates the rate of value loss per year.
+        </p>
+        <p>
+          <code>GROUP BY year, fuel</code> ensures depreciation is analyzed
+          separately for each year and fuel type.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps understand which fuel
+          types retain value better over time.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <pre><code class="language-sql">
+-- Cars with Best Value (Price per Power) --
+SELECT `Name`, selling_price, max_power, (selling_price / max_power) AS price_per_bhp
+FROM `car dekho`
+ORDER BY price_per_bhp ASC
+LIMIT 5;
+            </code></pre>
+      </div>
+
+      <div class="explanation">
+        <p><strong>Explanation:</strong></p>
+        <p>
+          <code>(selling_price / max_power)</code> calculates the price per unit
+          of power (bhp).
+        </p>
+        <p>
+          <code>ORDER BY price_per_bhp ASC</code> ranks cars with the best
+          price-to-power ratio at the top.
+        </p>
+        <p>
+          <code>LIMIT 5</code> shows only the top 5 most cost-effective cars.
+        </p>
+        <p>
+          💡 <strong>Why do this?</strong> This helps find cars that offer the
+          most power for the least amount of money.
+        </p>
+      </div>
+
+      <h2>Conclusion</h2>
+      <p>
+        Through SQL-based analysis, this project provides valuable insights into
+        car sales trends, availability, and market shifts. The findings can be
+        used by businesses, dealerships, and consumers to make data-driven
+        decisions about car purchases, pricing strategies, and inventory
+        management. By leveraging structured data analysis, we can enhance our
+        understanding of the evolving automotive market. Let me know if you'd
+        like any refinements! 🚀 ​
+      </p>
+
+      <p>
+        In summary, understanding car sales trends is crucial for both consumers
+        and manufacturers. It allows consumers to make better purchasing
+        decisions while enabling manufacturers to adjust their strategies based
+        on market demands.
+      </p>
+    </div>
+    <!-- End of the container -->
+  </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>British Airways Review Dashboard - README</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        background: #edede9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2e3b55;
+      }
+      h1 {
+        text-align: center;
+        border-bottom: 3px solid #2e3b55;
+        padding-bottom: 10px;
+      }
+      h2 {
+        border-bottom: 2px solid #2e3b55;
+        padding-bottom: 5px;
+        margin-top: 20px;
+      }
+      .highlight {
+        background-color: #2e3b55;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .code-block {
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .conclusion {
+        background-color: #dff0d8;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .image-container {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: block;
+        margin: 20px auto;
+    }
+    
+    /* Hover Effect */
+    .image-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+      .image-container img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">← Return Back</button>
+  </nav>
+
+  <style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Slight background for contrast */
+      padding: 10px 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background-color: #61afef;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 20px; /* Adds spacing from the left */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #4b8ec9;
+      transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+      padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+        <h1 style="
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        font-size: 32px;
+        margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #1a237e, #ff0000);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    ">
+        <img src="https://logos-world.net/wp-content/uploads/2021/02/British-Airways-Logo.png" 
+             alt="British Airways Logo" 
+             style="height: 50px;">
+        British Airways Review Dashboard
+    </h1>
+    
+
+      <div class="image-container">
+        <img
+          src="British_Airways_Dashboard.PNG"
+          alt="British Airways Dashboard"
+        />
+      </div>
+
+      <h2>Project Overview</h2>
+      <p>
+        The <strong>British Airways Review Dashboard</strong> is an interactive
+        analytics tool designed to analyze customer reviews and satisfaction
+        metrics for British Airways. It provides valuable insights into customer
+        experience across multiple categories, including:
+      </p>
+      <ul>
+        <li><strong>Seat Comfort</strong></li>
+        <li><strong>Cabin Staff Service</strong></li>
+        <li><strong>Entertainment</strong></li>
+        <li><strong>Food Quality</strong></li>
+        <li><strong>Overall Rating</strong></li>
+      </ul>
+      <p>
+        The goal is to identify trends, pinpoint areas for improvement, and
+        enhance service quality based on passenger feedback.
+      </p>
+
+      <h2>Business Problems Addressed</h2>
+      <ul>
+        <li>
+          <strong>Understanding Customer Satisfaction Trends</strong> - Track
+          sentiment trends across different service categories.
+        </li>
+        <li>
+          <strong>Assessing Aircraft Comfort Levels</strong> - Compare comfort
+          scores across different aircraft models.
+        </li>
+        <li>
+          <strong>Geographic Trends in Reviews</strong> - Analyze seat comfort
+          ratings by country.
+        </li>
+        <li>
+          <strong>Tracking Review Volume</strong> - Identify which aircraft
+          receive the most/least reviews.
+        </li>
+        <li>
+          <strong>Detecting Areas for Improvement</strong> - Highlight
+          underperforming service areas.
+        </li>
+      </ul>
+
+      <h2>Steps Taken in the Analysis</h2>
+
+      <h3>1. Data Preparation</h3>
+      <ul>
+        <li>Collected and cleaned customer review data.</li>
+        <li>Standardized date formats and numerical ratings.</li>
+        <li>Created mapping for geographic review trends.</li>
+      </ul>
+
+      <h3>2. Data Transformation</h3>
+      <p>
+        Built a calculated field to allow dynamic metric selection based on user
+        input:
+      </p>
+      <div class="code-block">
+        CASE [Pick a metric]<br />
+        WHEN 'Overall Rating' THEN [Rating]<br />
+        WHEN 'Cabin Staff Services' THEN [Cabin Staff Service]<br />
+        WHEN 'Entertainment' THEN [Entertainment]<br />
+        WHEN 'Food' THEN [Food Beverages]<br />
+        WHEN 'Ground Services' THEN [Ground Service]<br />
+        WHEN 'Seat Comfort' THEN [Seat Comfort]<br />
+        WHEN 'Value' THEN [Value For Money]<br />
+        END
+      </div>
+
+      <h3>3. Data Modeling</h3>
+      <ul>
+        <li>
+          Established relationships between aircraft types, reviews, and
+          customer satisfaction.
+        </li>
+        <li>Optimized Tableau calculations for better performance.</li>
+      </ul>
+
+      <h2>Dashboard Components</h2>
+
+      <h3>Key Metrics (KPIs)</h3>
+      <ul>
+        <li><span class="">Average Overall Rating</span></li>
+        <li><span class="">Cabin Staff Service Score</span></li>
+        <li><span class="">Value for Money</span></li>
+        <li><span class="">Food & Beverage Score</span></li>
+        <li><span class="">Entertainment Score</span></li>
+        <li><span class="">Seat Comfort Score</span></li>
+        <li><span class="">Ground Service Rating</span></li>
+      </ul>
+
+      <h3>Data Visualizations</h3>
+      <ul>
+        <li>
+          <strong>Average Seat Comfort by Month</strong> - Identifies trends
+          over time.
+        </li>
+        <li>
+          <strong>Average Seat Comfort by Country</strong> - Map visualization
+          of customer satisfaction.
+        </li>
+        <li>
+          <strong>Average Seat Comfort by Aircraft</strong> - Comparison of
+          aircraft models based on comfort ratings.
+        </li>
+      </ul>
+
+      <h2>Key Findings & Insights</h2>
+
+      <h3>1. Seat Comfort Varies by Aircraft</h3>
+      <p>
+        <strong>A380</strong> has the highest seat comfort rating
+        (<strong>3.3</strong>), while <strong>A319 and A320</strong> have lower
+        scores.
+      </p>
+      <p>
+        <strong>Recommendation:</strong> Optimize seating configurations on
+        lower-rated aircraft.
+      </p>
+
+      <h3>2. Service Areas Need Improvement</h3>
+      <p>
+        <strong>Food & Beverages (2.4)</strong> and
+        <strong>Entertainment (1.4)</strong> received the lowest ratings.
+      </p>
+      <p>
+        <strong>Recommendation:</strong> Enhance in-flight meals and upgrade
+        entertainment options.
+      </p>
+
+      <h3>3. Geographic Trends in Customer Satisfaction</h3>
+      <p>
+        Some countries report lower satisfaction scores, indicating service
+        disparities.
+      </p>
+      <p>
+        <strong>Recommendation:</strong> Target low-rated regions for service
+        enhancements.
+      </p>
+
+      <h3>4. Review Volume Insights</h3>
+      <p>
+        Certain aircraft, like the <strong>Boeing 747 and A380</strong>, receive
+        significantly more reviews.
+      </p>
+      <p>
+        <strong>Recommendation:</strong> Encourage more feedback on
+        underrepresented aircraft types.
+      </p>
+
+      <h2>Actionable Recommendations</h2>
+      <ul>
+        <li>
+          <strong>Enhance In-Flight Services</strong> - Improve food quality and
+          expand menu choices.
+        </li>
+        <li>
+          <strong>Upgrade Entertainment</strong> - Offer more diverse content.
+        </li>
+        <li>
+          <strong>Optimize Seating Experience</strong> - Reconfigure seating for
+          better comfort.
+        </li>
+        <li>
+          <strong>Target Regional Improvements</strong> - Improve service in
+          low-rated regions.
+        </li>
+        <li>
+          <strong>Encourage More Customer Feedback</strong> - Gather more
+          insights from passengers.
+        </li>
+      </ul>
+
+      <h2 class=>Conclusion</h2>
+      <p>
+        The British Airways Review Dashboard provides valuable insights into passenger experiences by analyzing customer reviews. This tool helps:
+    </p>
+<li>Track service quality trends</li>
+<li>Identify weak areas</li>
+<li>Optimize airline operations to enhance passenger satisfaction.</li>
+
+<p>
+By leveraging these insights, British Airways can make data-driven decisions to improve overall customer experience and brand reputation.
+
+.
+      </p>
+    </div>
+  </body>
+</html>

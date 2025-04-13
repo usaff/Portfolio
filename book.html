@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Insights: Online Bookstore</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff; /* Updated background color */
+        color: #333; /* Darker text color for readability */
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        color: #2c3e50; /* Darker color for the heading */
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        max-width: 1100px; /* Set a max width for the container */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add padding inside the container */
+        background-color: #edede9; /* White background for the container */
+        border-radius: 8px; /* Optional: rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+      }
+
+      .code-container {
+        max-width: 100%;
+        overflow-x: auto;
+        background-color: #2d2d2d; /* Dark background for code blocks */
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px; /* Added margin for spacing */
+      }
+
+      pre {
+        font-size: 14px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+        color: #d1d9e6; /* Light color for code text */
+      }
+
+      code {
+        display: block;
+        color: #87cefa; /* Light blue for code */
+        font-family: Consolas, monospace;
+      }
+
+      .explanation {
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      .explanation p,
+      .explanation ul {
+        color: #2c3e50; /* Darker color for explanation text */
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      .back-button {
+        width: auto;
+        text-align: center;
+        display: inline-block;
+        font-size: 14px;
+        padding: 8px 12px;
+        cursor: pointer;
+        background-color: #4a90e2; /* Button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .back-button:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 0 10px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        pre {
+          font-size: 12px;
+          padding: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .back-button {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+
+        pre {
+          font-size: 12px;
+          padding: 5px;
+        }
+      }
+
+      /* Navigation Bar to Hold Button */
+      .nav-bar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Slight background for contrast */
+        padding: 10px 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      /* Back Button Styling */
+      .back-button {
+        background-color: #61afef;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 20px; /* Adds spacing from the left */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-button:hover {
+        background-color: #4b8ec9;
+        transform: scale(1.05);
+      }
+
+      /* Ensure Body has Padding to Prevent Overlap */
+      body {
+        padding-top: 70px; /* Creates space so button does not overlap h1 */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="project-details">
+      <nav class="nav-bar">
+        <button onclick="history.back()" class="back-button">
+          ← Return Back
+        </button>
+      </nav>
+
+      <div class="container">
+        <!-- Start of the container -->
+        <!-- Bootstrap Icons CDN -->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+        />
+
+        <h3
+          style="
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            font-size: 38px;
+            margin-top: 15px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff9800, #673ab7);
+            color: #ff9800;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+          "
+        >
+          <i
+            class="bi bi-book-fill"
+            style="font-size: 30px; color: #ff9800"
+          ></i>
+          Customer Insights: Online Bookstore
+          <i
+            class="bi bi-bar-chart-line-fill"
+            style="font-size: 30px; color: #673ab7"
+          ></i>
+        </h3>
+
+        <h3>Why We Are Doing This:</h3>
+        <p>
+          Managing an online bookstore requires an efficient and structured
+          database to handle books, customers, and orders. Without proper data
+          organization, tracking inventory, customer details, and sales
+          performance becomes challenging. This project creates a
+          well-structured database to store and manage bookstore-related data,
+          ensuring smooth operations and accurate record-keeping.
+        </p>
+        <h3>About the Project:</h3>
+        <p>
+          This project involves designing and implementing an SQL database for
+          an online bookstore. The database includes tables for books,
+          customers, and orders, enabling efficient management of inventory,
+          customer details, and sales transactions. SQL queries are used to
+          retrieve books by genre, filter customers by location, and track
+          orders over time.
+        </p>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+CREATE DATABASE IF NOT EXISTS OnlineBookstore;
+USE OnlineBookstore;
+
+-- Creating Tables
+CREATE TABLE Books (
+    Book_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100),
+    Author VARCHAR(100),
+    Genre VARCHAR(50),
+    Published_Year INT,
+    Price DECIMAL(10,2),
+    Stock INT 
+);
+
+CREATE TABLE Customers (
+    Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100),
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(15),
+    City VARCHAR(50),
+    Country VARCHAR(150)
+);
+
+CREATE TABLE Orders (
+    Order_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Customer_ID INT,
+    Book_ID INT,
+    Order_Date DATE,
+    Quantity INT,
+    Total_Amount DECIMAL(10,2),
+    FOREIGN KEY (Customer_ID) REFERENCES Customers(Customer_ID),
+    FOREIGN KEY (Book_ID) REFERENCES Books(Book_ID)
+);
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            We need a table to store book details so customers can browse and
+            buy them, and we need to track book sales and who buys what.
+          </p>
+          <ul>
+            <li>
+              <strong>Book_ID</strong> is the unique identifier for each book
+              (important for tracking sales).
+            </li>
+            <li>
+              <strong>Stock</strong> helps us track inventory—so we know when to
+              restock.
+            </li>
+            <li><strong>FOREIGN KEY</strong> ensures data consistency:</li>
+            <li>
+              <strong>Customer_ID</strong> must exist in Customers (prevents
+              ghost orders).
+            </li>
+            <li>
+              <strong>Book_ID</strong> must exist in Books (prevents ordering
+              non-existent books).
+            </li>
+          </ul>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 1) Retrieve all books in the "Fiction" genre:
+SELECT * FROM books WHERE Genre ='Fiction';
+
+-- 2) Find books published after the year 1950:
+SELECT * FROM books WHERE Published_Year > 1950;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <ul>
+            <li><strong>Retrieve all books in the "Fiction" genre</strong></li>
+            <p>
+              This helps users quickly find Fiction books without manually
+              searching through all genres.
+            </p>
+            <li><strong>Find books published after the year 1950</strong></li>
+            <p>
+              Useful for filtering modern books, ensuring recommendations or
+              searches focus on more recent publications.
+            </p>
+          </ul>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 3) List all customers from Canada:
+SELECT * FROM customers WHERE Country = 'Canada';
+
+-- 4) Show orders placed in November 2023:
+SELECT * FROM orders WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30';
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <ul>
+            <li><strong>Step 3: List all customers from Canada</strong></li>
+            <p>
+              To identify and analyze customers from Canada for targeted
+              marketing, regional sales insights, or customer service
+              improvements.
+            </p>
+            <li>
+              <strong>Step 4: Show orders placed in November 2023</strong>
+            </li>
+            <p>
+              To analyze sales performance for November 2023, track order
+              volume, and understand customer purchasing trends.
+            </p>
+          </ul>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 5) Retrieve the total stock of books available:
+SELECT SUM(Stock) AS 'Total Stock' FROM books;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To calculate the total number of books available in stock, helping
+            with inventory management and restocking decisions.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 6) Find the most expensive book:
+SELECT * FROM Books ORDER BY Price DESC LIMIT 1;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To identify the most expensive book, which can be useful for pricing
+            analysis, promotions, or inventory valuation.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 7) Retrieve the total number of books sold for each genre:
+SELECT b.Genre, SUM(o.Quantity) AS Total_Books_Sold
+FROM Orders o
+JOIN Books b ON o.Book_ID = b.Book_ID
+GROUP BY b.Genre;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To analyze book sales by genre, helping in understanding customer
+            preferences, optimizing inventory, and making data-driven marketing
+            decisions.
+          </p>
+        </div>
+
+        <!-- Additional Queries -->
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 2) Find the average price of books in the "Fantasy" genre:
+SELECT AVG(price) AS Average_Price
+FROM Books
+WHERE Genre = 'Fantasy';
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To determine the average price of books in the Fantasy genre,
+            helping with pricing strategies, competitive analysis, and customer
+            affordability insights.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 3) List customers who have placed at least 2 orders:
+SELECT o.customer_id, c.name, COUNT(o.Order_id) AS ORDER_COUNT
+FROM orders o
+JOIN customers c ON o.customer_id=c.customer_id
+GROUP BY o.customer_id, c.name
+HAVING COUNT(Order_id) >=2;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To identify repeat customers who have placed at least two orders,
+            helping in customer retention analysis, loyalty program planning,
+            and targeted marketing strategies.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 4) Find the most frequently ordered book:
+SELECT o.Book_id, b.title, COUNT(o.order_id) AS ORDER_COUNT
+FROM orders o
+JOIN books b ON o.book_id=b.book_id
+GROUP BY o.book_id, b.title
+ORDER BY ORDER_COUNT DESC LIMIT 1;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To identify the most frequently ordered book, which helps in
+            understanding customer preferences, optimizing stock levels, and
+            planning marketing promotions.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 5) Show the top 3 most expensive books of 'Fantasy' Genre:
+SELECT * FROM books
+WHERE genre = 'Fantasy'
+ORDER BY price DESC LIMIT 3;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To identify the top 3 most expensive Fantasy books, helping in
+            pricing strategy, premium product promotion, and inventory
+            management for high-value books.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 6) Retrieve the total quantity of books sold by each author:
+SELECT b.author, SUM(o.quantity) AS Total_Books_Sold
+FROM orders o
+JOIN books b ON o.book_id=b.book_id
+GROUP BY b.Author;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To see how many books each author has sold, which helps in
+            understanding which authors are most popular and can guide inventory
+            and marketing decisions.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 7) List the cities where customers who spent over $30 are located:
+SELECT DISTINCT c.city, total_amount
+FROM orders o
+JOIN customers c ON o.customer_id=c.customer_id
+WHERE o.total_amount > 30;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 Why do this?</h3>
+          <p>
+            To identify the cities where customers spent over $30, which helps
+            in targeting high-value customers for promotions or regional sales
+            strategies.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 8) Find the customer who spent the most on orders:
+SELECT c.customer_id, c.name, SUM(o.total_amount) AS Total_Spent
+FROM orders o
+JOIN customers c ON o.customer_id=c.customer_id
+GROUP BY c.customer_id, c.name
+ORDER BY Total_spent Desc LIMIT 1;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To identify the customer who spent the most on orders, which helps
+            in recognizing top customers for loyalty programs or personalized
+            marketing efforts.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 9) Calculate stock remaining after fulfilling all orders:
+SELECT b.book_id, b.title, b.stock - SUM(o.quantity) AS Remaining_Quantity
+FROM books b
+LEFT JOIN orders o ON b.book_id=o.book_id
+GROUP BY b.book_id, b.title, b.stock
+ORDER BY b.book_id;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To calculate the remaining stock of books after fulfilling all
+            orders, which helps in inventory management and restocking
+            decisions.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 1) Which country generates the highest revenue?
+SELECT c.Country, SUM(o.Total_Amount) AS Total_Revenue
+FROM Orders o
+JOIN Customers c ON o.Customer_ID = c.Customer_ID
+GROUP BY c.Country
+ORDER BY Total_Revenue DESC
+LIMIT 1;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To identify the country that generates the highest revenue, helping
+            in market analysis, targeted marketing efforts, and strategic
+            decision-making for expanding in high-revenue regions.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 2) Which month had the highest book sales in revenue?
+SELECT DATE_FORMAT(Order_Date, '%Y-%m') AS Order_Month, 
+   SUM(Total_Amount) AS Monthly_Revenue
+FROM Orders
+GROUP BY Order_Month
+ORDER BY Monthly_Revenue DESC
+LIMIT 1;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To identify the month with the highest book sales in revenue,
+            helping in understanding seasonal trends, planning promotions, and
+            optimizing sales strategies.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 3) Find the revenue contribution of each book genre.
+SELECT b.Genre,
+SUM(o.Total_Amount) AS revenue
+FROM orders o 
+JOIN books b ON b.book_id=o.book_id
+GROUP BY b.Genre
+ORDER BY revenue DESC;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To determine the revenue contribution of each book genre, helping in
+            understanding which genres are the most profitable and guiding
+            inventory and marketing strategies.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 4) Calculate the average order value per customer.
+SELECT c.Customer_ID, c.Name, AVG(o.Total_Amount) AS Avg_Order_Value
+FROM Orders o
+JOIN Customers c ON o.Customer_ID = c.Customer_ID
+GROUP BY c.Customer_ID, c.Name
+ORDER BY Avg_Order_Value DESC;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To calculate the average amount spent per order by each customer,
+            helping in understanding customer spending habits and identifying
+            high-value customers for targeted marketing.
+          </p>
+        </div>
+
+        <div class="code-container">
+          <pre><code class="language-sql">
+-- 5) Predict when a book will run out of stock.
+SELECT b.Book_ID, b.Title, 
+   b.Stock / AVG(o.Quantity) AS Estimated_Months_Before_Stockout
+FROM Orders o
+JOIN Books b ON o.Book_ID = b.Book_ID
+GROUP BY b.Book_ID, b.Title, b.Stock
+ORDER BY Estimated_Months_Before_Stockout ASC;
+          </code></pre>
+        </div>
+
+        <div class="explanation">
+          <h3>💡 <strong>Why do this?</strong></h3>
+          <p>
+            To predict when a book will run out of stock based on current sales
+            trends, helping in inventory management and ensuring timely
+            restocking.
+          </p>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>
+          By structuring book, customer, and order data efficiently, this
+          database enhances the management of an online bookstore. It allows for
+          accurate tracking of sales, inventory, and customer interactions,
+          ultimately improving business operations and customer service.
+        </p>
+      </div>
+      <!-- End of the container -->
+    </section>
+  </body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Sales Dashboard - Project Overview</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #edede9;
+            
+            border-radius: 12px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: left;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            text-decoration: underline;
+        text-align: center;
+        }
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #333;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        p, ul {
+            font-size: 16px;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+/* Responsive Image */
+.responsive-img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 800px; /* Prevents it from becoming too large on big screens */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 10px auto; /* Centers the image */
+    border-radius: 8px;
+}
+.closing-message {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Code Block Styling */
+       /* Code Block Styling */
+pre {
+    background-color: #272822; /* Dark background for contrast */
+    color: #f8f8f2; /* Light text for readability */
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: pre-wrap; /* Ensures long lines wrap */
+    word-wrap: break-word; /* Breaks words properly on small screens */
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.code {
+    background-color: #ffffff; /* Dark background */
+    color: #000000; /* Light text for readability */
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto; /* Enables scrolling if needed */
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    white-space: pre-wrap; /* Ensures long lines wrap */
+    word-wrap: break-word; /* Prevents overflow */
+    margin: 10px 0;
+}
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        pre {
+            font-size: 13px; /* Slightly smaller text for mobile */
+            padding: 12px;
+        }
+    }
+    </style>
+</head>
+<section class="project-details">
+    <section class="project-details">
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="back-button">
+                ← Return Back
+            </button>
+        </nav>
+        
+        <style>
+            /* Navigation Bar to Hold Button */
+            .nav-bar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+                padding: 10px 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        
+            /* Back Button Styling */
+            .back-button {
+                background-color: #61afef;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: 20px; /* Adds spacing from the left */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .back-button:hover {
+                background-color: #4b8ec9;
+                transform: scale(1.05);
+            }
+        
+            /* Ensure Body has Padding to Prevent Overlap */
+            body {
+                padding-top: 70px; /* Creates space so button does not overlap h1 */
+            }
+        
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .back-button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .back-button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                    width: auto;
+                    margin-left: 10px;
+                }
+            }
+        </style>
+<body>
+
+    <div class="container">
+        <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h3 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 38px;
+margin-top: 15px;
+font-weight: bold;
+background: linear-gradient(90deg, #ff9900, #333);
+color: #ff9900; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+">
+<i class="bi bi-cart-fill" style="font-size: 30px; color: #ff9900;"></i>
+Amazon Sales Dashboard – Project Overview
+<i class="bi bi-bar-chart-line-fill" style="font-size: 30px; color: #333;"></i>
+</h3>
+
+
+        <div class="section">
+            <h2>Project Objective</h2>
+            <p>The <strong>Amazon Sales Dashboard</strong> is designed to help e-commerce businesses analyze sales performance, track orders, and manage stock availability efficiently.</p>
+            <p>It provides a <strong>Power BI-like interactive dashboard</strong> where users can filter data based on order status, product categories, and sales trends across different locations.</p>
+        </div>
+
+        <div class="section">
+            <h2>Business Problem Solved</h2>
+            <ul>
+                <li> Monitor total sales, order count, and stock levels</li>
+                <li> Identify top-performing cities and states for sales</li>
+                <li> Track product availability and category-wise sales</li>
+                <li> Improve decision-making using interactive data visualizations</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Key Features</h2>
+            <ul>
+                <li> <strong>Sales Overview</strong> – Displays total sales, order count, and stock availability</li>
+                <li> <strong>Order Status Filters</strong> – Filter orders based on status: <em>Shipped, Cancelled, Unshipped</em></li>
+                <li> <strong>Product Filtering</strong> – Sort products by size (XS, S, M, L, XL, etc.)</li>
+                <li> <strong>Product Listings</strong> – View <em>popular products</em> with images and descriptions</li>
+                <li> <strong>Sales Analysis Charts</strong> – Bar charts for sales trends by <em>city and state</em></li>
+                <li> <strong>Responsive Design</strong> – Mobile-friendly UI</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Understanding the Dashboard</h2>
+            <h3>First Dashboard View (Product Overview)</h3>
+            <img src="amzondas.PNG" alt="Product Overview" class="responsive-img">
+            <p>Shows <strong>product listings</strong> with their images and descriptions. Displays <strong>total sales, order count, and stock levels</strong>.</p>
+            
+            <h3>Second Dashboard View (Sales Analysis)</h3>
+            <img src="amzon2.PNG" alt="Sales Analysis" class="responsive-img">
+            <p><strong>Sales by City & State</strong> – Bar charts showing <strong>top-performing locations</strong>.</p>
+            <p><strong>Order Status Filters</strong> – Users can filter sales based on <em>order status (Shipped, Cancelled, Pending, etc.)</em>.</p>
+            <p><strong>Trend Line Chart</strong> – Displays the <em>sum of total sales over time</em>, helping businesses analyze trends.</p>
+        </div>
+
+        <div class="section">
+            <h2>DAX Formulas and Their Functions</h2>
+
+            <h3>1 Total Sales</h3>
+            <div class="code">Total_Sales = SUM(Orders[Sales])</div>
+            <p> <strong>What it does:</strong> Calculates <strong>total revenue</strong>.</p>
+
+            <h3>2 Current Year Sales</h3>
+            <div class="code">Current_Year_Sales = CALCULATE(SUM(Orders[Sales]), DATESYTD(Orders[Order Date]))</div>
+            <p> <strong>What it does:</strong> Calculates <strong>Year-To-Date (YTD) performance</strong>.</p>
+
+            <h3>3 Previous Year Sales</h3>
+            <div class="code">Previous_Year_Sales = CALCULATE(SUM(Orders[Sales]), YEAR(Orders[Order Date]) = 2021)</div>
+            <p> <strong>What it does:</strong> Extracts <strong>total sales from the previous year</strong>.</p>
+
+            <h3>4 Sales Growth Percentage</h3>
+            <div class="code">Sales_Growth = DIVIDE(([Current_Year_Sales] - [Previous_Year_Sales]), [Previous_Year_Sales])</div>
+            <p> <strong>What it does:</strong> Measures the <strong>percentage increase or decrease in sales</strong>.</p>
+
+            <h3>5 Category Assignment Using SWITCH</h3>
+            <div class="code">Category_Switch = VAR cate = SELECTEDVALUE(Orders[Category]) SWITCH(TRUE(), cate = "Office Supplies", "Digital Watch", cate = "Furniture", "Analog Watch", cate = "Technology", "Other") RETURN _type</div>
+            <p> <strong>What it does:</strong> Assigns <strong>custom product types</strong> based on their category.</p>
+        </div>
+
+        <div class="section">
+            <h2>Business Insights Derived from the Dashboard</h2>
+            <ul>
+                <li> **Understanding Sales Performance** – Identify best-selling categories and low-performing products.</li>
+                <li> **Tracking Orders Efficiently** – Track delays and improve logistics.</li>
+                <li> **Identifying Best-Selling Locations** – Allocate inventory efficiently.</li>
+                <li> **Sales Trend Analysis** – Plan marketing campaigns based on trends.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Future Improvements</h2>
+            <ul>
+                <li>🔹 **Real-Time Data Updates**</li>
+                <li>🔹 **AI-Powered Insights**</li>
+                <li>🔹 **Cloud Integration**</li>
+                <li>🔹 **Enhanced Mobile Experience**</li>
+            </ul>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>The <strong>Amazon Sales Dashboard</strong> provides a <em>real-time, interactive sales tracking solution</em> that helps businesses <strong>analyze trends, track orders, and optimize inventory</strong>, leading to <strong>better decision-making</strong> and <strong>increased profitability</strong>.</p>
+        <h3>✨ Thank you for exploring this project! </h3>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>King County House Sales Dashboard</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 20px;
+        background-color: white;
+        color: #333;
+      }
+
+      /* Main Container */
+      .main-container {
+        background-color: #edede9;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 1100px;
+        margin: 0 auto 50px;
+        font-family: "Kanit", sans-serif;
+      }
+
+      /* Section Styles */
+      .section {
+        margin-bottom: 20px;
+        
+      }
+
+      .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        text-align: left; 
+        border-bottom: 3px solid #2e3b55;
+      }
+
+      .section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .section ul li {
+        margin-bottom: 8px;
+      }
+
+      /* Code Block Styling */
+      .code {
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        font-family: Consolas, "Courier New", monospace;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        color: #333;
+        font-size: 1em;
+        overflow-x: auto;
+        display: block;
+        border-left: 4px solid #2980b9;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+    
+      .image-container {
+        width: 80%;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: block;
+        margin: 20px auto;
+    }.image-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+      .image-container img {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">← Return Back</button>
+  </nav>
+
+  <style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Slight background for contrast */
+      padding: 10px 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background-color: #61afef;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 20px; /* Adds spacing from the left */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #4b8ec9;
+      transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+      padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  </style>
+  <body>
+    <div class="main-container">
+      <div class="section">
+        <h1 style="
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4A148C, #FF6F00);
+    color: #4A148C; /* Fallback color */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+">
+    <img src="https://cdn-icons-png.flaticon.com/512/619/619153.png" 
+         alt="House Icon" 
+         style="height: 50px; vertical-align: middle;">
+    King County House Sales Dashboard
+   
+</h1>
+<br>
+        <p>
+          The <strong>King County House Sales Dashboard</strong> provides an
+          interactive analysis of real estate trends in King County, Washington.
+          It is designed to assist real estate professionals, analysts, and home
+          buyers in understanding housing price patterns, property
+          distributions, and key factors influencing property values.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title"> Business Problems Addressed</h2>
+        <ul>
+          <li>
+            <strong>Pricing Trends Analysis:</strong> Tracks daily average house
+            prices to identify trends and fluctuations.
+          </li>
+          <li>
+            <strong>Geographic Distribution of Sales:</strong> A map visualizes
+            the location-based pricing and sales concentration.
+          </li>
+          <li>
+            <strong>Property Characteristics Impacting Price:</strong> Analyzes
+            how factors like bedrooms, bathrooms, and square footage affect
+            house prices.
+          </li>
+          <li>
+            <strong>Condition-Based Pricing Strategy:</strong> Shows how house
+            conditions impact price variations.
+          </li>
+          <li>
+            <strong>Market Segmentation:</strong> Categorizes properties based
+            on build year, lot size, and square footage.
+          </li>
+          <li>
+            <strong>Buyer and Seller Insights:</strong> Helps buyers understand
+            market conditions and supports sellers in setting competitive
+            prices.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title"> Key Features & Visuals</h2>
+        <ul>
+          <li>
+            <strong>Daily Average House Price Trend:</strong> Displays daily
+            price movements.
+          </li>
+          <li>
+            <strong>Sales Distribution Map:</strong> Highlights areas with high
+            and low sales activity.
+          </li>
+          <li>
+            <strong>House Price Histogram:</strong> Shows frequency distribution
+            of sales within different price ranges.
+          </li>
+          <li>
+            <strong>Bedrooms & Bathrooms Distribution:</strong> Analyzes common
+            property configurations.
+          </li>
+          <li>
+            <strong>View vs. Condition Heatmap:</strong> Examines how house
+            condition ratings affect pricing.
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <h1>King County, Washington House Sales Dashboard</h1>
+
+        <div class="image-container">
+          <img src="kingcountry.PNG" alt="King County House Sales Dashboard" />
+        </div>
+
+        <h2 class="section-title">Key Features & Insights</h2>
+
+
+        <h3>1. Filters (Left Panel):</h3>
+        <ul>
+          <li>Select date range (calendar view).</li>
+          <li>
+            Adjust filters for
+            <strong>year built, living area (sqft), and lot size</strong>.
+          </li>
+        </ul>
+
+        <h3> 2. Daily Average House Price Sales (Top Middle):</h3>
+        <ul>
+          <li>
+            Line chart tracking <strong>daily average house prices</strong>.
+          </li>
+          <li>Identifies price trends and fluctuations over time.</li>
+        </ul>
+
+        <h3> 3. Map (Top Right):</h3>
+        <ul>
+          <li>
+            Displays <strong>geographical distribution</strong> of house sales.
+          </li>
+          <li>Darker regions indicate higher sales or price variations.</li>
+        </ul>
+
+        <h3> 4. Distribution of House Prices (Middle Left):</h3>
+        <ul>
+          <li>
+            Histogram showing <strong>sales frequency by price bins</strong>.
+          </li>
+          <li>Helps understand common price ranges.</li>
+        </ul>
+
+        <h3> 5. View vs. Condition Heatmap (Middle Right):</h3>
+        <ul>
+          <li>
+            Analyzes how house
+            <strong>condition ratings (Poor to Excellent)</strong> impact
+            pricing.
+          </li>
+          <li>Higher condition scores result in higher prices.</li>
+        </ul>
+
+        <h3> 6. Distribution of Bedrooms & Bathrooms (Bottom):</h3>
+        <ul>
+          <li>
+            Histograms show the
+            <strong>most common property configurations</strong>.
+          </li>
+          <li>Helps buyers and sellers understand market demand.</li>
+        </ul>
+
+        <h2> How to Use This Dashboard?</h2>
+        <ul>
+          <li>
+            <strong>Buyers:</strong> Find affordable locations and analyze
+            pricing trends.
+          </li>
+          <li>
+            <strong>Sellers:</strong> Set competitive prices using
+            condition-based pricing insights.
+          </li>
+          <li>
+            <strong>Investors:</strong> Identify high-demand areas and
+            investment opportunities.
+          </li>
+        </ul>
+
+
+        </p>
+    
+      <div class="section">
+        <h2 class="section-title"> Insights & Recommendations</h2>
+        <ul>
+          <li>
+            <strong>High Demand Areas:</strong> Certain locations consistently
+            have higher prices, indicating investment hotspots.
+          </li>
+          <li>
+            <strong>Condition-Based Pricing:</strong> Homes in "Good" or "Very
+            Good" condition command significantly higher prices.
+          </li>
+          <li>
+            <strong>Market Trends:</strong> Seasonal fluctuations in sales
+            prices suggest timing strategies for buyers and sellers.
+          </li>
+          <li>
+            <strong>Investment Potential:</strong> Older homes with large lots
+            may be prime candidates for renovation and resale.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title"> Conclusion</h2>
+        <p>
+          The <strong>King County House Sales Dashboard</strong> empowers
+          stakeholders with <em>data-driven insights</em> to navigate the real
+          estate market effectively. With interactive filters and calculated
+          metrics, this Tableau project aids in
+          <strong>understanding market dynamics</strong>, optimizing pricing
+          strategies, and making <strong>informed investment decisions</strong>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

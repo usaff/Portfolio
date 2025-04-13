@@ -1,0 +1,416 @@
+<head>
+    <title>Age-Based Bike Purchase Analysis - Power BI</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px;
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;        border-bottom: 3px solid #2e3b55;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;        border-bottom: 3px solid #2e3b55;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    </style>
+</head>
+<nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">
+        ← Return Back
+    </button>
+</nav>
+
+<style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+        padding: 10px 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+        background-color: #61afef;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 20px; /* Adds spacing from the left */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+        background-color: #4b8ec9;
+        transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+        padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .back-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-left: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .back-button {
+            font-size: 14px;
+            padding: 8px 16px;
+            width: auto;
+            margin-left: 10px;
+        }
+    }
+</style>
+
+<body>
+
+    <section class="project-details">
+      <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h1 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 32px;
+margin-top: 20px;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-weight: bold;
+background: linear-gradient(90deg, #1565C0, #FF6F00);
+color: #1565C0; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 15px;
+">
+<i class="bi bi-bicycle" style="font-size: 40px; color: #1565C0;"></i>
+Age-Based Bike Purchase Analysis
+<i class="bi bi-bicycle" style="font-size: 40px; color: #FF6F00;"></i>
+</h1>
+
+
+        
+        
+        <h3> Project Overview</h3>
+        <p>This report analyzes trends in bike purchases based on various demographic factors such as age, gender, marital status, education, and commute distance. The goal is to identify patterns that influence a customer's decision to purchase a bike.
+        <h3> Why This Project?</h3>
+        <ul>
+            <li>✔ Identifying target customer segments</li>
+            <li>✔ Optimizing marketing strategies</li>
+            <li>✔ Enhancing product offerings based on customer needs</li>
+            <li>✔ Improving sales strategies using data-driven insights</li>
+        </ul>
+
+        <h3> Key Insights</h3>
+        <ul>
+            <li>✔ <b>Gender Influence:</b> Identifies variations in bike purchases between male and female customers.</li>
+            <li>✔ <b>Commute Distance Impact:</b> Analyzes how the distance traveled to work affects purchasing decisions.</li>
+            <li>✔ <b>Income Analysis:</b> Evaluates the income distribution of buyers versus non-buyers.</li>
+            <li>✔ <b>Education Level Trends:</b> Examines the relationship between education levels and bike purchases.</li>
+        </ul>
+
+        <h3> Steps in the Analysis</h3>
+        <ol>
+            <li> <b>Data Cleaning</b> – Handling missing values, correcting inconsistencies, and formatting data.</li>
+            <li> <b>Exploratory Data Analysis (EDA)</b> – Identifying trends and patterns in bike purchases.</li>
+            <li><b>Visualization</b> – Creating interactive dashboards for better data representation.</li>
+            <li> <b>Insights & Recommendations</b> – Providing strategic suggestions to improve bike sales based on findings.</li>
+        </ol>
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;">Dashboard Explanation: Age-Based Bike Purchase Trends</h2>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+This dashboard provides insights into bike sales trends based on demographic factors like marital status, education, region, and commute distance. It helps identify key patterns in purchasing behavior by visualizing data through interactive filters and charts.
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">Dashboards preview:</h3>
+        <img src="bike.png" 
+        alt="bike Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <div class="section">
+            <div class="section">
+                <h4 style="color: #2980B9; font-family: Arial, sans-serif;">1. Filters (Left Panel)</h4>
+<p><strong>Users can filter the data based on:</strong></p>
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li><strong>Marital Status:</strong> Married, Single</li>
+    <li><strong>Education Level:</strong> High School, Partial College, etc.</li>
+    <li><strong>Region:</strong> Europe, North America, Pacific</li>
+</ul>
+<p>These filters dynamically adjust the visualizations to analyze bike sales by different customer segments.</p>
+        <img src="Commute.PNG" 
+        alt="Commute Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h4 style="color: #2980B9; font-family: Arial, sans-serif;">2. Commute Distance vs. Bike Purchases (Top-Right & Bottom Charts)</h4>
+        <p><strong>Chart Type:</strong> Line Chart</p>
+        <p><strong>Purpose:</strong> Shows how the distance a customer commutes impacts their decision to buy a bike.</p>
+        <p><strong>Key Insights:</strong></p>
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li><span style="color: #3498DB;">The blue line</span> represents people who did not purchase a bike.</li>
+            <li><span style="color: #E67E22;">The orange line</span> represents those who purchased a bike.</li>
+            <li>People with shorter commute distances (0-1 miles) have a higher count of not purchasing bikes.</li>
+            <li><strong>Those commuting 5-10 miles are more likely to buy a bike, indicating that moderate commuting distances influence bike purchases positively.</strong></li>
+        </ul>
+        <img src="sales.PNG" 
+        alt="Bike sale Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <div class="section">
+            <h4 style="color: #2980B9; font-family: Arial, sans-serif;">3. Bike Sales Breakdown by Gender (Top-Center Chart)</h4>
+<p><strong>Chart Type:</strong> Clustered Bar Chart</p>
+<p><strong>Purpose:</strong> Displays the number of bikes purchased by male and female buyers.</p>
+<p><strong>Key Insights:</strong></p>
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li><span style="color: #E67E22;">The orange bars</span> indicate the number of people who purchased a bike.</li>
+    <li><span style="color: #3498DB;">The blue bars</span> indicate those who did not purchase a bike.</li>
+    <li>Average income values are displayed on top of each bar.</li>
+    <li><strong>Males generally have a higher purchase count compared to females.</strong></li>
+</ul>
+        <h2>Overall Analysis</h2>
+        <ul>
+            <li><strong>Demographics & Income:</strong> Higher-income individuals (both male and female) tend to purchase bikes more frequently.</li>
+            <li><strong>Commute Distance Influence:</strong> Moderate-distance commuters (5-10 miles) show higher bike purchase rates.</li>
+            <li><strong>Regional & Education Insights:</strong> Users can analyze specific segments by applying filters.</li>
+        </ul>
+        <style>
+            /* General Styling */
+            .formula-section {
+                max-width: 100%;
+                padding: 20px;
+            }
+        
+            h2, h3 {
+                font-family: Arial, sans-serif;
+            }
+        
+            h2 {
+                color: #2C3E50;
+                font-size: 2rem; /* Scales with screen size */
+                text-align: center;
+            }
+        
+            h3 {
+                color: #2980B9;
+                font-size: 1.5rem;
+                text-align: left; /* Ensure titles are left-aligned */
+            }
+        
+            /* Responsive Code Blocks */
+            .code-block {
+                background-color: #F4F4F4;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 5px solid #3498DB;
+                overflow-x: auto; /* Allows scrolling if needed */
+                white-space: pre-wrap; /* Prevents overflow */
+                word-wrap: break-word;
+                font-size: 1rem;
+                text-align: left; /* Ensure text starts from the left */
+            }
+        
+            pre {
+                margin: 0; /* Remove any extra margins */
+                padding: 0;
+                text-align: left; /* Force left alignment */
+            }
+        
+            code {
+                color: #C0392B;
+                font-weight: bold;
+                font-family: Consolas, "Courier New", monospace;
+                display: block; /* Forces code to take full width */
+            }
+        
+            p {
+                font-family: Arial, sans-serif;
+                color: #34495E;
+                font-size: 1rem;
+                text-align: justify;
+            }
+        
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                h2 {
+                    font-size: 1.75rem;
+                }
+        
+                h3 {
+                    font-size: 1.25rem;
+                }
+        
+                .code-block {
+                    font-size: 0.9rem;
+                }
+        
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                h2 {
+                    font-size: 1.5rem;
+                }
+        
+                h3 {
+                    font-size: 1.1rem;
+                }
+        
+                .code-block {
+                    font-size: 0.85rem;
+                    padding: 10px;
+                }
+        
+                p {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        
+        <div class="formula-section">
+            <h2>Key DAX Formulas Used</h2>
+        
+            <h3>Total Bike Purchases</h3>
+            <pre class="code-block">
+        <code>TotalPurchases = COUNTROWS(FILTER(BikeData, BikeData[Purchased Bike] = "Yes"))</code>
+            </pre>
+            <p>This formula counts the number of rows where a bike was purchased.</p>
+        
+            <h3>Average Income Calculation</h3>
+            <pre class="code-block">
+        <code>AvgIncome = AVERAGEX(BikeData, BikeData[Income])</code>
+            </pre>
+            <p>This computes the average income for different customer segments.</p>
+        
+            <h3>Bike Purchase Rate by Commute Distance</h3>
+            <pre class="code-block">
+        <code>BikePurchaseRate = DIVIDE([TotalPurchases], COUNTROWS(BikeData))</code>
+            </pre>
+            <p>This calculates the percentage of customers who bought a bike, helping us analyze trends by commute distance.</p>
+        
+            <h2>Problem Statement</h2>
+            <p>A bike retail company wants to understand customer purchasing behavior to increase bike sales. The business needs insights into who buys bikes, why they buy, and how different factors (income, gender, education, commute distance, etc.) influence purchases.</p>
+        </div>
+        
+        
+        <h3 style="color: #2980B9; font-family: Arial, sans-serif;"> Key Challenges</h3>
+        
+        <h4 style="color: #2980B9; font-family: Arial, sans-serif;">1️⃣ Identifying Target Customers</h4>
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li> <strong>Who is more likely to buy a bike—males or females?</strong></li>
+            <li> <strong>What income levels contribute to higher bike purchases?</strong></li>
+            <li> <strong>Do education and marital status impact purchasing decisions?</strong></li>
+        </ul>
+        
+        <h4 style="color: #2980B9; font-family: Arial, sans-serif;">2️⃣ Understanding Commute Distance Influence</h4>
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li> <strong>How does commute distance impact bike purchase behavior?</strong></li>
+            <li> <strong>Are shorter or longer commutes more likely to drive purchases?</strong></li>
+        </ul>
+        
+        <h4 style="color: #2980B9; font-family: Arial, sans-serif;">3️⃣ Regional Market Insights</h4>
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li> <strong>Do certain regions have a higher bike adoption rate?</strong></li>
+            <li> <strong>How can marketing efforts be optimized for different locations?</strong></li>
+        </ul>
+        
+        <h3 style="color: #27AE60; font-family: Arial, sans-serif;"> Business Impact & Solution</h3>
+        
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li> <strong>Better Targeting</strong> – Helps the company focus on demographics that are more likely to buy bikes.</li>
+            <li> <strong>Optimized Marketing Strategies</strong> – Tailor promotions based on customer behavior (e.g., targeting moderate-distance commuters).</li>
+            <li> <strong>Improved Product Positioning</strong> – Adjust pricing and inventory based on income levels and commute patterns.</li>
+            <li> <strong>Higher Sales Conversion</strong> – By focusing on key factors driving purchases, the company can enhance sales performance and boost revenue.</li>
+        </ul>
+        
+        <p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+        This report enables data-driven decision-making to enhance sales strategies and customer engagement in the bike retail business. 🚀
+        </p>
+        
+        <h3> Tools & Technologies Used</h3>
+        <ul>
+            <li>✔ Microsoft Excel – Pivot Tables, Charts, and Dashboards for data visualization.</li>
+            <li>✔ Power Query – Used for data transformation and cleaning (if applicable).</li>
+        </ul>
+
+     
+        
+        <h2> Future Improvements</h2>
+        <ul>
+            <li>✔ AI-based Sales Forecasting</li>
+            <li>✔ Real-time Data Integration</li>
+            <li>✔ Enhanced UX with More Animations & Interactions</li>
+        </ul>
+
+        <h2> Feedback & Contributions</h2>
+        <p>We welcome feedback & contributions to enhance this project! </p>
+    </section>
+</body>

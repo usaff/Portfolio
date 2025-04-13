@@ -1,0 +1,564 @@
+<head>
+    <title>Hospital Emergency Department Insights - Dashboard</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px;
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;    border-bottom: 3px solid #2e3b55;
+        }
+
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;    border-bottom: 3px solid #2e3b55;
+        }
+
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-details {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-details {
+                padding: 15px;
+            }
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <button onclick="history.back()" class="back-button">
+            ← Return Back
+        </button>
+    </nav>
+    
+    <style>
+        /* Navigation Bar to Hold Button */
+        .nav-bar {
+            width: 100%;
+            height: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+            padding: 10px 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    
+        /* Back Button Styling */
+        .back-button {
+            background-color: #61afef;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 20px; /* Adds spacing from the left */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .back-button:hover {
+            background-color: #4b8ec9;
+            transform: scale(1.05);
+        }
+    
+        /* Ensure Body has Padding to Prevent Overlap */
+        body {
+            padding-top: 70px; /* Creates space so button does not overlap h1 */
+        }
+    
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .back-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                margin-left: 15px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .back-button {
+                font-size: 14px;
+                padding: 8px 16px;
+                width: auto;
+                margin-left: 10px;
+            }
+        }
+    </style>
+    
+    <body>
+    
+        <section class="project-details">
+            <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h1 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 32px;
+margin-top: 20px;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-weight: bold;
+background: linear-gradient(90deg, #d32f2f, #1976d2);
+color: #d32f2f; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 15px;
+">
+<i class="bi bi-hospital" style="font-size: 40px; color: #d32f2f;"></i>
+Emergency Dept Performance Insights
+<i class="bi bi-activity" style="font-size: 40px; color: #1976d2;"></i>
+</h1>
+
+    
+        
+        
+ 
+
+        <h3> Project Overview</h3>
+        <p>
+            This report provides insights into key metrics of a hospital’s emergency room, helping administrators and medical staff optimize operations, reduce wait times, and improve patient satisfaction. The report leverages data from hospital records and presents it through interactive dashboards in Power BI/Excel.
+        </p>
+        <h2>Business Problems Addressed</h2>
+        <ul>
+            <li>Identifying the most common causes of hospital visits.</li>
+            <li>Monitoring patient wait times and optimizing resource allocation.</li>
+            <li>Assessing patient satisfaction to enhance service quality.</li>
+            <li>Improving overall efficiency in emergency room operations.</li>
+        </ul>
+    
+        <h2>Data Sources</h2>
+        <ul>
+            <li><strong>Hospital Emergency.xlsx</strong> (Contains patient visit details, wait times, causes of visit, and satisfaction scores)</li>
+            
+        </ul>
+        <h3> Why This Project? (A Real-World Perspective)</h3>
+        <p>
+            It was a cold winter night when Sarah rushed her father to the emergency department. He was struggling to breathe, his face pale, and his hands trembling. The waiting room was crowded—patients of all ages anxiously waiting for their turn. Sarah pleaded with the front desk, but the overwhelmed staff could only offer one response:  
+            <strong>"Please wait, we are doing our best."</strong>
+        </p>
+        <p>
+            Minutes felt like hours. Her father’s condition worsened, yet the doctors were still occupied with other critical patients. By the time he was seen, he required intensive care—something that could have been avoided with better patient flow management.  
+            Sarah’s experience is not unique. Thousands of families face similar struggles daily. Overcrowding, long wait times, and poor resource management in emergency departments can be a matter of life and death. This project aims to identify bottlenecks, optimize workflows, and ultimately save lives.
+        </p>
+
+        <h3> Project Goals</h3>
+        <ul>
+            <li> Identify factors contributing to long wait times.</li>
+            <li> Improve patient management strategies.</li>
+            <li> Optimize hospital resources to enhance emergency care.</li>
+        </ul>
+
+        <h3> Key Insights</h3>
+        <ul>
+            <li><strong>Patient Volume:</strong> The dataset contains <strong>1,001</strong> patient records.</li>
+            <li><strong>Admissions:</strong> <strong>58.5%</strong> of patients were admitted, while <strong>41.5%</strong> were not.</li>
+            <li><strong>Wait Time:</strong> The average patient wait time is <strong>34.93 minutes</strong>, highlighting potential service bottlenecks.</li>
+            <li><strong>On-Time Treatment:</strong> <strong>41.7%</strong> of patients were attended to on time, while <strong>58.3%</strong> experienced delays—suggesting room for operational improvements.</li>
+            <li><strong>Demographics:</strong> More female patients (<strong>53.5%</strong>) than male patients (<strong>46.3%</strong>).</li>
+            <li><strong>Age Group Trends:</strong> The <strong>20-29</strong> and <strong>60-69</strong> age groups had the highest number of emergency visits.</li>
+            <li><strong>Referral Gaps:</strong> Most patient records have <strong>"None"</strong> as the department referral, indicating possible data entry issues.</li>
+        </ul>
+        <style>
+            /* General Styling */
+            .formula-section {
+                max-width: 100%;
+                padding: 20px;
+            }
+        
+            h2, h3 {
+                font-family: Arial, sans-serif;
+                text-align: left;
+            }
+        
+            h2 {
+                color: #2C3E50;
+                font-size: 2rem; /* Scales with screen size */
+                text-align: center;
+            }
+        
+            h3 {
+                color: #2980B9;
+                font-size: 1.5rem;
+                margin-top: 20px;
+            }
+        
+            /* Responsive Code Blocks */
+            .code-block {
+                background-color: #F4F4F4;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 5px solid #3498DB;
+                overflow-x: auto; /* Allows scrolling if needed */
+                white-space: pre-wrap; /* Prevents overflow */
+                word-wrap: break-word;
+                font-size: 1rem;
+                text-align: left; /* Ensure text starts from the left */
+            }
+        
+            pre {
+                margin: 0; /* Remove any extra margins */
+                padding: 0;
+                text-align: left; /* Force left alignment */
+            }
+        
+            code {
+                color: #C0392B;
+                font-weight: bold;
+                font-family: Consolas, "Courier New", monospace;
+                display: block; /* Forces code to take full width */
+            }
+        
+            p {
+                font-family: Arial, sans-serif;
+                color: #34495E;
+                font-size: 1rem;
+                text-align: justify;
+            }
+        
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                h2 {
+                    font-size: 1.75rem;
+                }
+        
+                h3 {
+                    font-size: 1.25rem;
+                }
+        
+                .code-block {
+                    font-size: 0.9rem;
+                }
+        
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                h2 {
+                    font-size: 1.5rem;
+                }
+        
+                h3 {
+                    font-size: 1.1rem;
+                }
+        
+                .code-block {
+                    font-size: 0.85rem;
+                    padding: 10px;
+                }
+        
+                p {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        
+        <div class="formula-section">
+            <h2>Key DAX Formulas</h2>
+        
+            <h3>1. Average Wait Time</h3>
+            <pre class="code-block">
+        <code>AvgWaitTime = AVERAGE('PatientData'[WaitTime])</code>
+            </pre>
+            <p>Calculates the average time patients wait before receiving medical attention.</p>
+        
+            <h3>2. Total Patients Per Cause</h3>
+            <pre class="code-block">
+        <code>TotalPatients = COUNT('PatientData'[PatientID])</code>
+            </pre>
+            <p>Counts the total number of patients for each visit cause.</p>
+        
+            <h3>3. Patient Satisfaction Score</h3>
+            <pre class="code-block">
+        <code>SatisfactionScore = AVERAGE('PatientData'[Satisfaction])</code>
+            </pre>
+            <p>Computes the average satisfaction score of patients.</p>
+        
+            <h3>4. Percentage of Patients Waiting More Than 30 Minutes</h3>
+            <pre class="code-block">
+        <code>%WaitOver30 = 
+        VAR Over30 = COUNTROWS(FILTER('PatientData', 'PatientData'[WaitTime] > 30))
+        VAR Total = COUNTROWS('PatientData')
+        RETURN DIVIDE(Over30, Total, 0)</code>
+            </pre>
+            <p>Calculates the percentage of patients who waited more than 30 minutes.</p>
+        </div>
+        
+        
+        <h3> Dashboards Preview</h3>
+        <img src="dashboardhospital.PNG" 
+        alt="Emergency Department Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;"> Final Dashboard of Hospital Emergency Room</h2>
+
+        <p style="font-family: Arial, sans-serif; color: #34495E;">
+        This dashboard provides a comprehensive overview of hospital emergency room operations, covering key metrics such as <strong>patient flow, wait times, and satisfaction scores</strong>. It helps hospital administrators and decision-makers assess performance and identify areas for improvement.
+        </p>
+        
+        <h3 style="color: #2980B9; font-family: Arial, sans-serif;"> Key Insights</h3>
+        
+        <ul style="font-family: Arial, sans-serif; color: #34495E;">
+            <li> <strong>Patient Flow</strong> – Tracks the number of incoming patients and their movement through different hospital departments.</li>
+            <li> <strong>Wait Times</strong> – Monitors the average time patients wait before receiving medical attention.</li>
+            <li> <strong>Patient Satisfaction Scores</strong> – Analyzes feedback to improve the patient experience.</li>
+            <li> <strong>Hospital Performance</strong> – Provides a data-driven approach for optimizing resources and reducing bottlenecks.</li>
+        </ul>
+        
+        <p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+        With this dashboard, hospitals can enhance efficiency, reduce patient wait times, and improve overall service quality. 🚀
+        </p>
+        <img src="Daily Hospital Patient Causes.PNG" 
+        alt="Emergency Department Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;"> Daily Hospital Patient Causes</h2>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+This dashboard highlights the <strong>most common reasons</strong> for hospital visits, providing valuable insights for hospital administrators and healthcare providers.
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;"> Key Insights</h3>
+
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li> <strong>Top Reasons for Visits</strong> – Identifies the most frequent medical conditions or emergencies leading to hospital admissions.</li>
+    <li> <strong>Trend Analysis</strong> – Tracks daily fluctuations in patient visit causes to detect seasonal or recurring patterns.</li>
+    <li> <strong>Resource Allocation</strong> – Helps hospital management optimize staff, equipment, and facilities based on patient needs.</li>
+    <li> <strong>Emergency Readiness</strong> – Ensures hospitals are prepared for surges in specific conditions (e.g., flu season, injury spikes).</li>
+</ul>
+
+<p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+By leveraging this data, hospitals can improve operational efficiency and enhance patient care. 
+</p>
+
+        <img src="Patient wait time.PNG" 
+        alt="Emergency Department Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;"> Patient Wait Time Analysis</h2>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+This dashboard analyzes <strong>patient wait times</strong> based on various factors such as time of day, department, and patient volume. It helps healthcare administrators identify delays and optimize hospital workflow.
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;"> Key Insights</h3>
+
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li> <strong>Wait Time Breakdown</strong> – Tracks average patient wait times across different departments.</li>
+    <li> <strong>Busiest Hours</strong> – Identifies peak periods when hospitals experience the highest congestion.</li>
+    <li> <strong>Service Delivery Optimization</strong> – Helps reduce patient backlog by adjusting staff allocation.</li>
+    <li> <strong>Performance Improvement</strong> – Enables real-time monitoring of wait times to enhance hospital efficiency.</li>
+</ul>
+
+<p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+By addressing patient wait time challenges, hospitals can improve patient satisfaction and streamline healthcare delivery. 
+</p>
+
+    
+        <img src="Satisfaction Score.PNG" 
+        alt="Emergency Department Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;">Patient Satisfaction Score</h2>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+This dashboard visualizes <strong>patient satisfaction levels</strong>, helping hospitals measure the quality of care and identify areas for improvement.
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;"> Key Insights</h3>
+
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li> <strong>Satisfaction Trends</strong> – Tracks patient feedback over time to monitor improvements or declines in service quality.</li>
+    <li> <strong>Department Performance</strong> – Compares satisfaction scores across different hospital departments.</li>
+    <li> <strong>Key Pain Points</strong> – Highlights factors leading to lower satisfaction (e.g., wait times, staff responsiveness).</li>
+    <li> <strong>Actionable Insights</strong> – Helps hospitals implement targeted improvements to enhance patient experience.</li>
+</ul>
+
+<p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+By leveraging satisfaction data, hospitals can drive better patient experiences and improve overall service quality. 
+</p>
+<div><h3> Tools & Techniques</h3>
+    <ul>
+        <li> <strong>Microsoft Excel</strong> – Data Cleaning, Pivot Tables, Charts</li>
+        <li> <strong>Power Query</strong> – Data Transformation</li>
+        <li> <strong>Dashboard Creation</strong> – Interactive Excel visualizations</li>
+    </ul>
+</div>
+        
+<h2 style="color: #2C3E50; font-family: Arial, sans-serif;"> Dashboards and Their Impact</h2>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">1. Daily Hospital Patient Causes Dashboard</h3>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+<strong>Problem:</strong> 
+<ul>
+    <li> Lack of visibility into the most common reasons for ER visits.</li>
+    <li> Difficulty in predicting patient influx for specific illnesses or injuries.</li>
+</ul>
+
+<strong>Solution:</strong>
+<ul>
+    <li> Identifies trends in patient admissions based on medical conditions.</li>
+    <li> Helps allocate staff and medical resources according to high-frequency cases.</li>
+    <li> Supports preventive healthcare planning to reduce ER visits.</li>
+</ul>
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">2. Final Dashboard of Hospital Emergency Room</h3>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+<strong>Problem:</strong> 
+<ul>
+    <li> Inefficient patient flow management leading to bottlenecks.</li>
+    <li> Overcrowding due to high patient volume and slow processing.</li>
+</ul>
+
+<strong>Solution:</strong>
+<ul>
+    <li> Provides a real-time overview of ER performance and patient distribution.</li>
+    <li> Optimizes hospital resource allocation (staffing, beds, and equipment).</li>
+    <li> Assists in implementing process improvements for faster patient care.</li>
+</ul>
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">3. Patient Wait Time Dashboard</h3>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+<strong>Problem:</strong> 
+<ul>
+    <li> Long wait times reducing patient satisfaction and increasing medical risks.</li>
+    <li> Delays in triage, doctor availability, and bed assignment.</li>
+</ul>
+
+<strong>Solution:</strong>
+<ul>
+    <li> Tracks average wait times for different stages of patient care.</li>
+    <li> Identifies bottlenecks in the ER workflow and suggests process improvements.</li>
+    <li> Supports better scheduling of medical staff to minimize delays.</li>
+</ul>
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">4. Satisfaction Score Dashboard</h3>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+<strong>Problem:</strong> 
+<ul>
+    <li> Low patient satisfaction due to wait times, service quality, and communication gaps.</li>
+    <li> Lack of real-time feedback mechanisms to address patient concerns.</li>
+</ul>
+
+<strong>Solution:</strong>
+<ul>
+    <li> Measures patient satisfaction based on experience metrics.</li>
+    <li> Provides insights into key areas for service improvement.</li>
+    <li> Helps implement real-time patient feedback loops for immediate action.</li>
+</ul>
+</p>
+
+<h3 style="color: #27AE60; font-family: Arial, sans-serif;"> Business Impact</h3>
+
+<ul style="font-family: Arial, sans-serif; color: #34495E;">
+    <li> <strong>Optimized ER Operations</strong> – Faster patient processing reduces overcrowding.</li>
+    <li> <strong>Improved Patient Experience</strong> – Shorter wait times and better communication increase satisfaction.</li>
+    <li> <strong>Better Resource Allocation</strong> – Data-driven decisions improve staff and equipment utilization.</li>
+    <li> <strong>Enhanced Decision-Making</strong> – Hospital management gains actionable insights for long-term improvements.</li>
+</ul>
+
+<p style="font-family: Arial, sans-serif; color: #34495E; font-weight: bold;">
+This analysis ensures that hospital administrators can make informed decisions to enhance emergency room efficiency and patient care quality. 
+</p>
+
+        <h2>Performance Optimizations</h2>
+        <ul>
+            <li>Reduced unnecessary columns to minimize data model size.</li>
+            <li>Used aggregations and summarization tables to speed up queries.</li>
+            <li>Applied indexing and optimized relationships for faster filtering.</li>
+            <li>Minimized calculated columns by preferring DAX measures for better performance.</li>
+        </ul>
+        <h2>Best Practices & Considerations</h2>
+    <ul>
+        <li><strong>Data Integrity:</strong> Ensured accuracy by cleaning and validating data.</li>
+        <li><strong>User-Friendly Visuals:</strong> Kept dashboards intuitive and easy to navigate.</li>
+        <li><strong>Performance Optimization:</strong> Used efficient DAX formulas and optimized data models.</li>
+        <li><strong>Regular Updates:</strong> Set up automated data refresh for real-time insights.</li>
+    </ul>
+        <h2> Future Improvements</h2>
+        <ul>
+            <li> AI-driven predictive patient flow modeling.</li>
+            <li> Real-time emergency room congestion monitoring.</li>
+            <li> Integration with IoT devices for improved tracking.</li>
+        </ul>
+
+        <h2> Feedback & Contributions</h2>
+        <p>We welcome feedback & contributions to enhance this project! </p>
+    </section>
+</body>

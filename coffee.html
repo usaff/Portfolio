@@ -1,0 +1,656 @@
+<head>
+  <title>Coffee Orders Data Analysis - Dashboard</title>
+  <style>
+    /* Project Details Section */
+    .project-details {
+      background-color: #edede9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: -40px auto 50px;
+      max-width: 1100px;
+      font-family: "Kanit", sans-serif;
+    }
+
+    .project-details h2 {
+      font-size: 32px;
+      color: #000000;
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #000000;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 3px solid #2e3b55;
+    }
+
+    .project-details h3 {
+      font-size: 24px;
+      color: #000000;
+      margin-top: 20px;
+      border-bottom: 3px solid #2e3b55;
+    }
+
+    .project-details p {
+      font-size: 16px;
+      color: #000000;
+      line-height: 1.6;
+      text-align: justify;
+      font-family: "Playfair Display", serif;
+    }
+
+    .project-details ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 10px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .project-details li {
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .project-details {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-details {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">← Return Back</button>
+  </nav>
+
+  <style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Slight background for contrast */
+      padding: 10px 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background-color: #61afef;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 20px; /* Adds spacing from the left */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #4b8ec9;
+      transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+      padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  </style>
+
+  <body>
+    <section class="project-details">
+      <!-- Bootstrap Icons CDN -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      />
+
+      <h1
+        style="
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+          font-size: 32px;
+          margin-top: 20px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+          background: linear-gradient(90deg, #6f4e37, #d2691e);
+          color: #6f4e37; /* Fallback color */
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+        "
+      >
+        <i class="bi bi-cup-hot" style="font-size: 40px; color: #6f4e37"></i>
+        Coffee Orders Data Analysis - Dashboard
+        <i
+          class="bi bi-bar-chart-line"
+          style="font-size: 40px; color: #d2691e"
+        ></i>
+      </h1>
+
+      <h3>Project Overview</h3>
+      <p>
+        The Coffee Sales Dashboard provides a comprehensive analysis of coffee
+        sales across different countries, customer segments, and time periods.
+        This report is designed to help business stakeholders identify key
+        trends, optimize sales strategies, and make data-driven decisions.
+      </p>
+      <h2 style="color: #2c3e50; font-family: Arial, sans-serif">
+        Business Problem Addressed
+      </h2>
+      <p style="font-family: Arial, sans-serif; color: #34495e">
+        The report aims to solve the following business challenges:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Understanding sales trends over time to identify peak seasons.</li>
+        <li>
+          Analyzing sales performance by country to allocate marketing and
+          supply chain resources effectively.
+        </li>
+        <li>Identifying top customers to improve retention strategies.</li>
+        <li>
+          Evaluating the impact of roast type, loyalty cards, and product size
+          on overall sales.
+        </li>
+      </ul>
+
+      <h2 style="color: #2c3e50; font-family: Arial, sans-serif">
+        Data Sources
+      </h2>
+      <p style="font-family: Arial, sans-serif; color: #34495e">
+        The dashboard uses sales transaction data extracted from
+        <strong>coffeeOrdersData.xlsx</strong>. The dataset includes:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li><strong>Order date</strong></li>
+        <li><strong>Roast type</strong> (Dark, Light, Medium)</li>
+        <li><strong>Loyalty card usage</strong></li>
+        <li><strong>Product size</strong> (0.2 Kg, 0.5 Kg, 1.0 Kg, 2.5 Kg)</li>
+        <li><strong>Country of purchase</strong></li>
+        <li><strong>Customer details</strong></li>
+        <li><strong>Sales amounts</strong></li>
+      </ul>
+      <h2 style="color: #2c3e50; font-family: Arial, sans-serif">
+        Steps Taken
+      </h2>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        1. Data Preparation
+      </h3>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Imported the dataset into Power BI/Excel.</li>
+        <li>Checked for missing values and inconsistencies.</li>
+        <li>
+          Formatted columns correctly (e.g., Date fields, Sales as currency).
+        </li>
+        <li>Standardized country names to avoid duplicates.</li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        2. Data Transformation
+      </h3>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Created a date table for time-based analysis.</li>
+        <li>Extracted year, month, and quarter for trend analysis.</li>
+        <li>Cleaned and normalized customer names to avoid duplicates.</li>
+        <li>
+          Applied filters for product size, loyalty card usage, and roast type.
+        </li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        3. Data Modeling
+      </h3>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>
+          Established relationships between Sales Data, Date Table, and Customer
+          Table.
+        </li>
+        <li>Optimized the model to ensure efficient calculations.</li>
+      </ul>
+
+      <h3>Key Objectives</h3>
+      <ul>
+        <li>Identify top-selling coffee types and seasonal trends.</li>
+        <li>Analyze customer order frequency and preferences.</li>
+        <li>Track revenue trends over different periods.</li>
+        <li>Evaluate the performance of different coffee products.</li>
+        <li>
+          Provide actionable insights to enhance sales and customer
+          satisfaction.
+        </li>
+      </ul>
+
+      <h3>Steps in the Analysis</h3>
+      <ul>
+        <li>
+          <strong>Data Collection:</strong> Gathered raw sales data from various
+          sources.
+        </li>
+        <li>
+          <strong>Data Cleaning:</strong> Removed missing values, standardized
+          formats, and ensured consistency.
+        </li>
+        <li>
+          <strong>Exploratory Data Analysis (EDA):</strong> Identified key sales
+          patterns, customer trends, and correlations.
+        </li>
+        <li>
+          <strong>Data Visualization:</strong> Created interactive dashboards
+          and charts to present insights.
+        </li>
+        <li>
+          <strong>Insights & Recommendations:</strong> Suggested data-driven
+          strategies to optimize sales and marketing.
+        </li>
+      </ul>
+      <style>
+        /* General Styling */
+        .formula-section {
+          max-width: 100%;
+          padding: 20px;
+        }
+
+        h2,
+        h3 {
+          font-family: Arial, sans-serif;
+          text-align: left; /* Ensures all headings are left-aligned */
+        }
+
+        h2 {
+          color: #2c3e50;
+          font-size: 2rem;
+          margin-bottom: 15px;
+        }
+
+        h3 {
+          color: #2980b9;
+          font-size: 1.5rem;
+          margin-top: 20px;
+        }
+
+        /* Responsive Code Blocks */
+        .code-block {
+          background-color: #f4f4f4;
+          padding: 15px;
+          border-radius: 5px;
+          border-left: 5px solid #3498db;
+          font-size: 1rem;
+          font-family: Consolas, "Courier New", monospace;
+          text-align: left; /* Ensures formulas start from the left */
+          white-space: pre-wrap; /* Prevents horizontal scrolling */
+          word-wrap: break-word;
+          overflow-x: auto; /* Allows scrolling if needed */
+          display: block;
+        }
+
+        pre {
+          margin: 0;
+          padding: 0;
+        }
+
+        p {
+          font-family: Arial, sans-serif;
+          color: #34495e;
+          font-size: 1rem;
+          text-align: left; /* Ensures text is also left-aligned */
+          margin-top: 5px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+          h2 {
+            font-size: 1.75rem;
+          }
+
+          h3 {
+            font-size: 1.25rem;
+          }
+
+          .code-block {
+            font-size: 0.9rem;
+            padding: 12px;
+          }
+
+          p {
+            font-size: 0.9rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h2 {
+            font-size: 1.5rem;
+          }
+
+          h3 {
+            font-size: 1.1rem;
+          }
+
+          .code-block {
+            font-size: 0.85rem;
+            padding: 10px;
+          }
+
+          p {
+            font-size: 0.85rem;
+          }
+        }
+      </style>
+
+      <div class="formula-section">
+        <h2>Key DAX Formulas</h2>
+
+        <h3>1. Total Sales Calculation</h3>
+        <pre class="code-block">
+        Total Sales = SUM(Sales[Amount])
+            </pre
+        >
+        <p>Adds up all sales transactions.</p>
+
+        <h3>2. Sales by Country</h3>
+        <pre class="code-block">
+        Sales by Country = CALCULATE(SUM(Sales[Amount]), ALLEXCEPT(Sales, Sales[Country]))
+            </pre
+        >
+        <p>Computes sales figures for each country.</p>
+
+        <h3>3. Monthly Sales Growth</h3>
+        <pre class="code-block">
+        Sales Growth % = 
+        VAR PrevMonthSales = CALCULATE(SUM(Sales[Amount]), PREVIOUSMONTH(Date[Date]))
+        RETURN 
+        IF(PrevMonthSales = 0, BLANK(), (SUM(Sales[Amount]) - PrevMonthSales) / PrevMonthSales)
+            </pre
+        >
+        <p>
+          Calculates percentage growth in sales compared to the previous month.
+        </p>
+      </div>
+
+      <h3>Dashboard Preview</h3>
+      <img
+        src="coffeeOrdersData_Dashboard.PNG"
+        alt="Coffee Sales Dashboard"
+        style="
+          width: 80%;
+          max-width: 600px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease-in-out;
+          display: block;
+          margin: 20px auto;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+      <h3>Sales by Country</h3>
+      <img
+        src="salebycountry.PNG"
+        alt="Coffee Sales Dashboard"
+        style="
+          width: 80%;
+          max-width: 600px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease-in-out;
+          display: block;
+          margin: 20px auto;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        2. Sales by Country
+      </h3>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>
+          Bar chart displaying sales revenue from the United States, Ireland,
+          and the United Kingdom.
+        </li>
+        <li>
+          Helps in understanding regional demand and prioritizing market
+          expansion.
+        </li>
+      </ul>
+      <h3>Total Sales Over Time</h3>
+      <img
+        src="totalsaleovertime.PNG"
+        alt="Coffee Sales Dashboard"
+        style="
+          width: 80%;
+          max-width: 600px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease-in-out;
+          display: block;
+          margin: 20px auto;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        3. Total Sales Over Time
+      </h3>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Line chart showing sales trends from 2019 to 2022.</li>
+        <li>Identifies seasonal spikes and low-performing months.</li>
+        <li>Helps businesses allocate marketing resources effectively.</li>
+      </ul>
+      <h3>Technologies Used</h3>
+      <ul>
+        <li><strong>Python</strong> (Pandas, Matplotlib, Seaborn, NumPy)</li>
+        <li><strong>SQL</strong> for data querying and analysis</li>
+        <li><strong>Excel</strong> for data manipulation</li>
+        <li><strong>Power BI/Tableau</strong> for data visualization</li>
+      </ul>
+      <h2 style="color: #2c3e50; font-family: Arial, sans-serif">
+        Business Problems Solved by the Coffee Sales Dashboard
+      </h2>
+      <p style="font-family: Arial, sans-serif; color: #34495e">
+        The Coffee Sales Dashboard was designed to address key business
+        challenges faced by the company in managing and analyzing sales data.
+        Below are the primary business problems it solves:
+      </p>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        1. Identifying Sales Trends Over Time
+      </h3>
+      <p>
+        <strong>Problem:</strong> The business lacked clear insights into how
+        coffee sales fluctuated over time, making it difficult to anticipate
+        peak seasons and adjust marketing efforts accordingly.
+      </p>
+      <p>
+        <strong>Solution:</strong> The
+        <em>"Total Sales Over Time"</em> visualization helps identify:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Seasonal sales patterns.</li>
+        <li>Growth trends and declines.</li>
+        <li>
+          Peak months for coffee sales, enabling better inventory planning.
+        </li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        2. Understanding Regional Sales Performance
+      </h3>
+      <p>
+        <strong>Problem:</strong> The company did not have a clear view of which
+        regions were driving the most revenue, leading to ineffective resource
+        allocation in marketing and supply chain.
+      </p>
+      <p>
+        <strong>Solution:</strong> The <em>"Sales by Country"</em> dashboard
+        shows:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Which countries contribute the most revenue.</li>
+        <li>
+          The United States as the dominant market, followed by Ireland and the
+          UK.
+        </li>
+        <li>
+          Opportunities for expansion or increased marketing efforts in
+          underperforming regions.
+        </li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        3. Customer Loyalty & High-Value Customers
+      </h3>
+      <p>
+        <strong>Problem:</strong> The business needed a way to identify its most
+        valuable customers to improve retention strategies.
+      </p>
+      <p>
+        <strong>Solution:</strong> The <em>"Top 5 Customers"</em> dashboard:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Highlights high-value customers based on purchase history.</li>
+        <li>
+          Helps the business implement loyalty programs and personalized
+          marketing.
+        </li>
+        <li>Encourages targeted promotions for repeat customers.</li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        4. Evaluating Product Preferences (Roast Type, Size, Loyalty Card)
+      </h3>
+      <p>
+        <strong>Problem:</strong> The company lacked insights into which product
+        variations (roast type, size) were most preferred by customers, making
+        demand forecasting difficult.
+      </p>
+      <p><strong>Solution:</strong></p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>
+          <strong>Roast Type Analysis:</strong> Understand if customers prefer
+          Dark, Medium, or Light roasts.
+        </li>
+        <li>
+          <strong>Size Selection Analysis:</strong> Provides insights into which
+          product sizes (0.2 Kg, 0.5 Kg, 1.0 Kg, 2.5 Kg) sell the most.
+        </li>
+        <li>
+          <strong>Loyalty Card Usage:</strong> Reveals if customers with a
+          loyalty card make higher purchases.
+        </li>
+      </ul>
+
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        5. Improving Business Decision-Making
+      </h3>
+      <p>
+        <strong>Problem:</strong> Decision-makers previously relied on intuition
+        rather than data-driven insights.
+      </p>
+      <p>
+        <strong>Solution:</strong> With interactive filters and real-time data
+        visualizations, business leaders can now:
+      </p>
+      <ul style="font-family: Arial, sans-serif; color: #34495e">
+        <li>Make informed decisions based on historical sales data.</li>
+        <li>
+          Optimize marketing and promotions for specific customer segments.
+        </li>
+        <li>Improve supply chain management based on demand trends.</li>
+      </ul>
+
+      <h3 style="color: #27ae60; font-family: Arial, sans-serif">
+        Final Impact
+      </h3>
+      <ul
+        style="
+          font-family: Arial, sans-serif;
+          color: #34495e;
+          font-weight: bold;
+        "
+      >
+        <li>
+          ✅ Increased Sales Efficiency – Targeted strategies based on sales
+          trends and top customer insights.
+        </li>
+        <li>
+          ✅ Better Resource Allocation – Focused marketing in high-performing
+          regions and products.
+        </li>
+        <li>
+          ✅ Higher Customer Retention – Personalized offers for top customers
+          and loyalty card holders.
+        </li>
+        <li>
+          ✅ Optimized Inventory Management – Avoid stock shortages or
+          overstocking by forecasting demand accurately.
+        </li>
+      </ul>
+
+      <p
+        style="
+          font-family: Arial, sans-serif;
+          color: #34495e;
+          font-weight: bold;
+        "
+      >
+        This dashboard empowers the business with data-driven insights,
+        improving profitability and efficiency in sales management. 🚀
+      </p>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>AI-based customer preference prediction.</li>
+        <li>Real-time sales monitoring and trend forecasting.</li>
+        <li>
+          Integration with loyalty programs to enhance customer retention.
+        </li>
+      </ul>
+
+      <h2>Feedback & Contributions</h2>
+      <p>We welcome feedback & contributions to enhance this project!</p>
+    </section>
+  </body>
+</body>
