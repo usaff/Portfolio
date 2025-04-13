@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Performance Dashboard</title>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 20px;
+        background-color: #f5f5f5;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #333;
+      }
+
+      /* Container for content */
+      .main-container {
+        background-color: #edede9;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: none; /* Remove unwanted shadow */
+        margin: 0 auto 50px; /* Adjust margin */
+        max-width: 1100px;
+        font-family: "Kanit", sans-serif;
+      }
+
+      /* Section styling */
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-top: 10px;
+        text-align: left !important;
+        border-bottom: 3px solid #2e3b55;
+      }
+
+      .section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .section ul li {
+        margin-bottom: 8px;
+      }
+
+      /* Code block styling */
+      .code {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        color: #333;
+        font-size: 1.1em;
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-left: 4px solid black;
+        font-size: 1rem;
+        font-family: Consolas, "Courier New", monospace;
+        text-align: left;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+        display: block;
+      }
+
+      .code span {
+        color: #2980b9; /* Change this color to style the variables */
+      }
+
+      .code .keyword {
+        color: #e74c3c; /* Highlight keywords like IF, YEAR, SUM */
+        font-weight: bold;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+
+      /* Highlight for important items */
+      .highlight {
+        color: #e74c3c;
+        font-weight: bold;
+      }
+      .table-summary {
+        width: 100%;
+        margin: 20px 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+        text-align: center;
+      }
+
+      .table-summary table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Header Styles */
+      .table-summary thead th {
+        padding: 14px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      /* Different Colors for Each Column Header */
+      .table-summary thead th:nth-child(1) {
+        background-color: #28a745;
+      } /* Blue */
+      .table-summary thead th:nth-child(2) {
+        background-color: #28a745;
+      } /* Green */
+      .table-summary thead th:nth-child(3) {
+        background-color: #28a745;
+      } /* Yellow */
+      .table-summary thead th:nth-child(4) {
+        background-color: #28a745;
+      } /* Red */
+      .table-summary thead th:nth-child(5) {
+        background-color: #28a745;
+      } /* Purple */
+
+      /* Table Row Styling */
+      .table-summary th,
+      .table-summary td {
+        padding: 14px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      .table-summary tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .table-summary tbody tr:hover {
+        background-color: #e9f5ff;
+        transition: 0.3s ease-in-out;
+      }
+
+      .table-summary td {
+        font-size: 14px;
+        color: #333;
+      }
+
+      .table-summary tbody tr {
+        transition: all 0.2s ease-in-out;
+      }
+      .highlights {
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <nav class="nav-bar">
+    <button onclick="history.back()" class="back-button">← Return Back</button>
+  </nav>
+
+  <style>
+    /* Navigation Bar to Hold Button */
+    .nav-bar {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Slight background for contrast */
+      padding: 10px 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background-color: #61afef;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 20px; /* Adds spacing from the left */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      background-color: #4b8ec9;
+      transform: scale(1.05);
+    }
+
+    /* Ensure Body has Padding to Prevent Overlap */
+    body {
+      padding-top: 70px; /* Creates space so button does not overlap h1 */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: auto;
+        margin-left: 10px;
+      }
+    }
+  </style>
+  <body>
+    <div class="main-container">
+      <!-- Title -->
+      <h1
+        style="
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+          font-size: 32px;
+          margin-top: 20px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+          background: linear-gradient(90deg, #ff6f00, #1a237e);
+          color: #ff6f00; /* Fallback color */
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+        "
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2331/2331947.png"
+          alt="Sales Icon"
+          style="height: 50px; vertical-align: middle"
+        />
+        Sales Performance Dashboard
+      </h1>
+      <br />
+      <!-- Project Overview Section -->
+      <div class="section project-overview">
+        <h3 class="section-title">Project Overview</h3>
+        <p>
+          The Sales Performance Dashboard provides a data-driven approach to
+          analyzing sales, profit, orders, and customer trends. It enables
+          business stakeholders to track revenue growth, compare year-over-year
+          (YoY) performance, and identify actionable insights for business
+          strategy optimization
+        </p>
+      </div>
+
+      <!-- Business Problems Section -->
+      <div class="section business-problems">
+        <h3 class="section-title">Business Problems Addressed</h3>
+        <ul>
+          <li>
+            Comparing Sales Performance Over Time – Identify whether sales,
+            profit, and customer engagement are increasing or decreasing.
+          </li>
+          <li>
+            Identifying Peak and Low-Performing Periods – Highlights best and
+            worst-performing months to optimize marketing and inventory
+            planning.
+          </li>
+          <li>
+            Tracking Customer Retention – Analyze whether the customer base is
+            growing or declining.
+          </li>
+          <li>
+            Detecting Declining Trends – Flags months where orders, sales, or
+            profit dropped compared to the previous year.
+          </li>
+          <li>
+            Optimizing Business Strategies – Provides actionable insights to
+            improve sales performance.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Steps Taken in the Analysis Section -->
+      <div class="section steps">
+        <h3 class="section-title">Steps Taken in the Analysis</h3>
+        <h4>Data Preparation</h4>
+        <ul>
+          <li>Extracted historical sales transaction data.</li>
+          <li>
+            Ensured date formats and sales/profit figures were correctly
+            structured.
+          </li>
+          <li>
+            Cleaned and formatted customer and order data to remove
+            inconsistencies.
+          </li>
+        </ul>
+
+        <h4>Data Transformation</h4>
+        <ul>
+          <li>
+            Created calculated fields for CY (Current Year) and PY (Previous
+            Year) metrics.
+          </li>
+          <li>Added filters for year selection to allow dynamic analysis.</li>
+          <li>
+            Applied window functions to identify min/max sales, orders, and
+            profit over time.
+          </li>
+        </ul>
+
+        <h4>Data Modeling</h4>
+        <ul>
+          <li>Established relationships between Sales Data and Date Table.</li>
+          <li>Optimized calculations for faster performance in Tableau.</li>
+        </ul>
+      </div>
+      <!-- Dashboard Preview Section -->
+      <div class="section dashboard-preview">
+        <h3 class="section-title">Dashboard Preview</h3>
+        <p>The Sales Performance Dashboard consists of:</p>
+        <ul>
+          <li>
+            Total Sales Over Time – Line chart comparing CY vs. PY sales trends.
+          </li>
+          <li>
+            Min/Max Sales Indicator – Highlights best and worst months for
+            revenue.
+          </li>
+          <li>
+            Sales Growth Indicator – KPI displaying positive or negative growth
+            from last year.
+          </li>
+          <li>
+            Profitability Tracker – Bar chart comparing CY vs. PY profits to
+            detect trends.
+          </li>
+          <li>
+            Customer Trends – Shows how many customers returned or dropped off
+            compared to last year.
+          </li>
+          <li>
+            Underperforming Sales Alerts – Flags months where CY sales drop
+            below PY sales.
+          </li>
+        </ul>
+      </div>
+      <h3 style="color: #2980b9; font-family: Arial, sans-serif">
+        Dashboards preview:
+      </h3>
+
+      <img
+        src="sales_performance_dashboard.PNG"
+        alt=" Dashboard"
+        style="
+          width: 100%;
+          max-width: 800px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease-in-out;
+          display: block;
+          margin: 20px auto;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+
+      <img
+        src="customer_analysis_dashboard.PNG"
+        alt=" Dashboard"
+        style="
+          width: 80%;
+          max-width: 800px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease-in-out;
+          display: block;
+          margin: 20px auto;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      />
+
+      <!-- DAX Code Section -->
+      <div class="section dax-codes">
+        <h3 class="section-title">
+          Step 1: First Calculate CY (Current Year) and PY (Previous Year)
+        </h3>
+        <p>
+          Before calculating KPIs, we first extract CY (Current Year) and PY
+          (Previous Year) data for Sales, Orders, Profit, and Customers.
+        </p>
+
+        <h4>CY and PY Sales Calculation</h4>
+        <div class="code">
+          <span class="keyword">CY Sales</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY()), [Sales], 0<br />
+          <span class="keyword">PY Sales</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY())-1, [Sales], 0
+        </div>
+
+        <h4>CY and PY Orders Calculation</h4>
+        <div class="code">
+          <span class="keyword">CY Orders</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY()), COUNTD([Order ID])<br />
+          <span class="keyword">PY Orders</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY())-1, COUNTD([Order ID])
+        </div>
+
+        <h4>CY and PY Profit Calculation</h4>
+        <div class="code">
+          <span class="keyword">CY Profit</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY()), [Profit], 0<br />
+          <span class="keyword">PY Profit</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY())-1, [Profit], 0
+        </div>
+
+        <h4>CY and PY Customers Calculation</h4>
+        <div class="code">
+          <span class="keyword">CY Customers</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY()), COUNTD([Customer ID])<br />
+          <span class="keyword">PY Customers</span> = IF YEAR([Order Date]) =
+          YEAR(TODAY())-1, COUNTD([Customer ID])
+        </div>
+      </div>
+
+      <!-- Percentage Change Section -->
+      <div class="section percentage-change">
+        <h3 class="section-title">
+          Step 2: Calculate Percentage Changes (YoY Comparisons)
+        </h3>
+
+        <h4>% Difference in Sales (YoY Growth Rate)</h4>
+        <div class="code">
+          <span class="keyword">Sales % Change</span> = <br />
+          (IF SUM([PY Sales]) = 0 THEN BLANK()<br />
+          ELSE (SUM([CY Sales]) - SUM([PY Sales])) / SUM([PY Sales])) * 100
+        </div>
+
+        <h4>% Difference in Orders</h4>
+        <div class="code">
+          <span class="keyword">Orders % Change</span> = <br />
+          (IF SUM([PY Orders]) = 0 THEN BLANK()<br />
+          ELSE (SUM([CY Orders]) - SUM([PY Orders])) / SUM([PY Orders])) * 100
+        </div>
+
+        <h4>% Difference in Profit</h4>
+        <div class="code">
+          <span class="keyword">Profit % Change</span> = <br />
+          (IF SUM([PY Profit]) = 0 THEN BLANK()<br />
+          ELSE (SUM([CY Profit]) - SUM([PY Profit])) / SUM([PY Profit])) * 100
+        </div>
+
+        <h4>% Difference in Customers</h4>
+        <div class="code">
+          <span class="keyword">Customers % Change</span> = <br />
+          (IF SUM([PY Customers]) = 0 THEN BLANK()<br />
+          ELSE (SUM([CY Customers]) - SUM([PY Customers])) / SUM([PY
+          Customers])) * 100
+        </div>
+      </div>
+
+      <!-- Table for Summary -->
+      <div class="section table-summary">
+        <h3 class="section-title">Summary of Why We Do These Calculations</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>CY Formula</th>
+              <th>PY Formula</th>
+              <th>% Change Formula</th>
+              <th>Why Important?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sales</td>
+              <td>CY Sales = SUM([Sales])</td>
+              <td>PY Sales = SUM([Sales])</td>
+              <td>(CY - PY) / PY * 100</td>
+              <td>Tracks revenue growth and business performance</td>
+            </tr>
+            <tr>
+              <td>Orders</td>
+              <td>CY Orders = COUNTD([Order ID])</td>
+              <td>PY Orders = COUNTD([Order ID])</td>
+              <td>(CY - PY) / PY * 100</td>
+              <td>Measures demand and customer activity</td>
+            </tr>
+            <tr>
+              <td>Profit</td>
+              <td>CY Profit = SUM([Profit])</td>
+              <td>PY Profit = SUM([Profit])</td>
+              <td>(CY - PY) / PY * 100</td>
+              <td>Ensures profitability and cost control</td>
+            </tr>
+            <tr>
+              <td>Customers</td>
+              <td>CY Customers = COUNTD([Customer ID])</td>
+              <td>PY Customers = COUNTD([Customer ID])</td>
+              <td>(CY - PY) / PY * 100</td>
+              <td>Monitors customer retention and acquisition trends</td>
+            </tr>
+            <tr>
+              <td>Min & Max Sales</td>
+              <td>WINDOW_MIN/MAX(SUM([CY Sales]))</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Identifies best and worst-performing sales months</td>
+            </tr>
+            <tr>
+              <td>Min & Max Orders</td>
+              <td>WINDOW_MIN/MAX(SUM([CY Orders]))</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Finds peak and low demand periods</td>
+            </tr>
+            <tr>
+              <td>Min & Max Profit</td>
+              <td>WINDOW_MIN/MAX(SUM([CY Profit]))</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Tracks profitability fluctuations</td>
+            </tr>
+            <tr>
+              <td>Min & Max Customers</td>
+              <td>WINDOW_MIN/MAX(SUM([CY Customers]))</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Helps analyze customer engagement trends</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <h3 class="section-title">Insights & Recommendations</h3>
+      <ul>
+        <li>
+          <span class="highlights">Revenue Trends:</span> If sales are
+          declining, explore marketing & promotional strategies.
+        </li>
+        <li>
+          <span class="highlights">Customer Retention:</span> If returning
+          customers are low, introduce loyalty programs.
+        </li>
+        <li>
+          <span class="highlights">Profitability:</span> If profit margins are
+          shrinking, review pricing and cost structures.
+        </li>
+        <li>
+          <span class="highlights">Seasonal Peaks & Lows:</span> Adjust
+          inventory and staffing based on historical trends.
+        </li>
+      </ul>
+
+      <h3 class="section-title">Conclusion</h3>
+      <p>
+        The Sales Performance Dashboard is a powerful tool for businesses to
+        monitor revenue growth, analyze trends, and make data-driven decisions.
+        It provides clear, actionable insights that help optimize strategies,
+        improve profitability, and enhance customer retention.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,547 @@
+<head>
+    <title> Mobile Dashboard</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+    background-color: #edede9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: none; /* Remove unwanted shadow */
+    margin: 0 auto 50px; /* Adjust margin */
+    max-width: 1100px;
+    font-family: 'Kanit', sans-serif;
+}
+
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif; border-bottom: 3px solid #2e3b55;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif; 
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+</section>
+      
+<!-- Project Details Section -->
+<section class="project-details">
+    <section class="project-details">
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="back-button">
+                ← Return Back
+            </button>
+        </nav>
+        
+        <style>
+            /* Navigation Bar to Hold Button */
+            .nav-bar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+                padding: 10px 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        
+            /* Back Button Styling */
+            .back-button {
+                background-color: #61afef;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: 20px; /* Adds spacing from the left */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .back-button:hover {
+                background-color: #4b8ec9;
+                transform: scale(1.05);
+            }
+        
+            /* Ensure Body has Padding to Prevent Overlap */
+            body {
+                padding-top: 70px; /* Creates space so button does not overlap h1 */
+            }
+        
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .back-button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .back-button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                    width: auto;
+                    margin-left: 10px;
+                }
+            }
+        </style>
+    
+    
+        <section class="project-details">
+           <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h1 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 40px;
+margin-top: 15px;
+font-weight: bold;
+background: linear-gradient(90deg, #4CAF50, #2196F3);
+color: #4CAF50; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+">
+<i class="bi bi-phone-fill" style="font-size: 30px; color: #4CAF50;"></i>
+Mobile Sales Data Breakdown
+<i class="bi bi-bar-chart-fill" style="font-size: 30px; color: #2196F3;"></i>
+</h1>
+
+        
+        <h3> Project Overview</h3>
+        <p>The Mobile Sales Dashboard provides a comprehensive view of mobile sales performance, enabling data-driven decision-making. This report analyzes total sales, transactions, payment methods, sales trends, and key performance indicators (KPIs) to help stakeholders understand business performance across different regions, brands, and time periods.
+        
+            
+        
+            <h2 style="color: #2C3E50;"> Why This Project?</h2>
+            <p style="font-size: 16px;">
+                The <strong>Mobile Sales Dashboard</strong> was developed to tackle key challenges in tracking and analyzing mobile phone sales. 
+                The goal was to enable <span style="color: #E74C3C; font-weight: bold;">data-driven decision-making</span> by consolidating sales data, automating reporting, 
+                and providing <span style="color: #E74C3C; font-weight: bold;">real-time insights</span>.
+            </p>
+        
+            <h3 style="color: #1A5276;"> Key Challenges & Solutions</h3>
+        
+            <h3 style="color: #1A5276;"> 1. Lack of Centralized Sales Insights</h3>
+            <p>Before this dashboard, sales data was scattered across multiple sources, making it difficult to get a unified performance view.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: Consolidates all sales data into a single interactive dashboard with real-time insights.
+            </pre>
+        
+            <h3 style="color: #1A5276;"> 2. Need for Performance Tracking & Comparison</h3>
+            <p>Businesses require a clear view of total sales, revenue trends, and market demand.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: Enables Month-to-Date (MTD) and Year-over-Year (YoY) sales comparison.
+            </pre>
+        
+            <h3 style="color: #1A5276;"> 3. Identifying Top & Low-Performing Products</h3>
+            <p>Decision-makers need insights into which phone models perform best to optimize stock levels.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: Tracks sales by brand, model, and location to ensure availability in key markets.
+            </pre>
+        
+            <h3 style="color: #1A5276;"> 4. Understanding Customer Preferences & Payment Trends</h3>
+            <p>Customer ratings and payment methods provide valuable insights for improving sales strategies.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: Tracks customer satisfaction and analyzes payment methods for optimization.
+            </pre>
+        
+            <h3 style="color: #1A5276;"> 5. Automating Reports & Reducing Manual Effort</h3>
+            <p>Manual reporting caused delays and errors.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: The dashboard automates reporting, eliminates errors, and saves time.
+            </pre>
+        
+            <h3 style="color: #1A5276;"> 6. Enhancing Decision-Making with Data-Driven Insights</h3>
+            <p>Sales managers and executives need quick, accurate insights for planning.</p>
+            <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #2ECC71; font-family: monospace;">
+            🔹 Solution: Supports forecasting future sales trends and adjusting strategies.
+            </pre>
+        
+          
+
+
+    <h3 style="color: #1A5276;"> 1. Track Total Sales & Transactions</h3>
+    <p>Monitor overall sales performance, including revenue, transaction count, and average selling price per unit.</p>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 Total Sales Amount
+    🔹 Number of Transactions
+    🔹 Average Price Per Unit
+    </pre>
+
+    <h3 style="color: #1A5276;"> 2. Sales Performance by City, Brand & Model</h3>
+    <p>Analyze which cities, brands, and mobile models drive the most revenue and transactions.</p>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 City-wise & Brand-wise Sales Breakdown
+    🔹 Best-Selling & Low-Performing Mobile Models
+    🔹 Market Demand & Regional Performance
+    </pre>
+
+    <h3 style="color: #1A5276;"> 3. Identify Sales Trends Over Time</h3>
+    <p>Visualize sales performance across months to detect seasonality and demand patterns.</p>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 Monthly Sales & Revenue Trends
+    🔹 Best & Worst Performing Sales Periods
+    🔹 Forecasting Future Demand
+    </pre>
+
+    <h3 style="color: #1A5276;"> 4. Compare Performance with Historical Data</h3>
+    <p>Measure current sales performance against historical benchmarks to assess growth.</p>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 Month-to-Date (MTD) vs. Previous Year MTD
+    🔹 Year-over-Year (YoY) Performance
+    🔹 Same Period Last Year (SPLY) Comparisons
+    </pre>
+
+    <h3 style="color: #1A5276;"> 5. Understand Customer Preferences</h3>
+    <p>Analyze customer ratings and payment method preferences to improve sales strategies.</p>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 Customer Ratings & Feedback Analysis
+    🔹 Preferred Payment Methods (Cash, Credit, Online)
+    🔹 Impact of Payment Options on Sales
+    </pre>
+    <title> Report Development Steps</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; color: #34495E; padding: 20px;">
+
+    <h2 style="color: #2C3E50;"> Steps Taken in Report Development</h2>
+
+    <h3 style="color: #1A5276;"> 1. Data Preparation & Cleaning</h3>
+    <p>Ensuring data accuracy and consistency before analysis.</p>
+    <ul style="color: #34495E;">
+        <li>✔ Imported raw sales data from <strong>Excel (.xlsx)</strong> into Power BI.</li>
+        <li>✔ Checked for missing or inconsistent values – Addressed <strong>null values</strong> in quantity, sales price, and transaction status.</li>
+        <li>✔ Standardized formats – Converted <strong>date fields</strong> into proper formats for time-based analysis.</li>
+        <li>✔ Created relationships between different tables (<strong>Transactions, Product Details, Ratings, Payments</strong>).</li>
+    </ul>
+
+    <h3 style="color: #1A5276;"> 2. Data Transformation (Power Query & DAX)</h3>
+    <p>Enhancing data quality and enabling calculations.</p>
+    <ul style="color: #34495E;">
+        <li>✔ Added <strong>calculated columns</strong> for total sales (<code>Total Quantity * Average Price</code>).</li>
+        <li>✔ Extracted <strong>time-based fields</strong> (Year, Month, Quarter, Day) to enable time intelligence reporting.</li>
+        <li>✔ Normalized categorical fields (<strong>Mobile Model, Brand, Payment Method</strong>) for consistency.</li>
+        <li>✔ Merged <strong>location data</strong> to enable city-wise analysis.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;"> 3. Data Modeling</h3>
+    <p>Structuring data into fact and dimension tables.</p>
+    <ul style="color: #34495E;">
+        <li><strong>Fact Tables:</strong> Sales Transactions, Payment Details.</li>
+        <li><strong>Dimension Tables:</strong> Product Info, City Locations, Time Dimension.</li>
+        <li><strong>Relationships Created:</strong></li>
+    </ul>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    🔹 Sales Transactions → Product Info (by Mobile Model)
+    🔹 Sales Transactions → Time Dimension (by Date)
+    🔹 Sales Transactions → Payments (by Transaction ID)
+    </pre>
+
+    <h3 style="color: #1A5276;"> Key DAX Formulas & Measures</h3>
+    <p>Essential calculations for dashboard insights.</p>
+
+    <h4 style="color: #1F618D;"> 1. Total Sales</h4>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    Total_Sales = SUM(Sales[Total Amount])
+    </pre>
+    <p><strong>Purpose:</strong> Computes total revenue from all transactions.</p>
+
+    <h4 style="color: #1F618D;"> 2. Total Quantity Sold</h4>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    Total_Quantity = SUM(Sales[Quantity])
+    </pre>
+    <p><strong>Purpose:</strong> Measures the total number of mobile units sold.</p>
+
+    <h4 style="color: #1F618D;"> 3. Average Selling Price</h4>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    Avg_Price = DIVIDE([Total_Sales], [Total_Quantity])
+    </pre>
+    <p><strong>Purpose:</strong> Calculates the average price per unit.</p>
+
+    <h4 style="color: #1F618D;"> 4. Total Sales (Same Period Last Year - SPLY)</h4>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    Total_SPLY = CALCULATE([Total_Sales], SAMEPERIODLASTYEAR(Date[Date]))
+    </pre>
+    <p><strong>Purpose:</strong> Compares the current year’s sales with the same period last year.</p>
+
+    <h4 style="color: #1F618D;"> 5. Running Total Sales (MTD)</h4>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; font-family: monospace;">
+    MTD_Sales = CALCULATE([Total_Sales], DATESYTD(Date[Date]))
+    </pre>
+    <p><strong>Purpose:</strong> Shows cumulative sales within a month.</p>
+
+  
+     
+        <h3> Steps in the Analysis</h3>
+        <ol>
+            <li> <b>Data Cleaning</b> – Handling missing values, correcting inconsistencies, and formatting data.</li>
+            <li> <b>Exploratory Data Analysis (EDA)</b> – Identifying trends and patterns in bike purchases.</li>
+            <li><b>Visualization</b> – Creating interactive dashboards for better data representation.</li>
+            <li> <b>Insights & Recommendations</b> – Providing strategic suggestions to improve bike sales based on findings.</li>
+        </ol>
+        <h2 style="color: #2C3E50; font-family: Arial, sans-serif;">Dashboard Explanation: Age-Based Bike Purchase Trends</h2>
+
+<p style="font-family: Arial, sans-serif; color: #34495E;">
+This dashboard provides insights into bike sales trends based on demographic factors like marital status, education, region, and commute distance. It helps identify key patterns in purchasing behavior by visualizing data through interactive filters and charts.
+</p>
+
+<h3 style="color: #2980B9; font-family: Arial, sans-serif;">Dashboards preview:</h3>
+        <img src="Dashboard.jpg" 
+        alt=" Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <title> Dashboard Breakdown</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; color: #34495E; padding: 20px;">
+
+    <h2 style="color: #2C3E50;"> Dashboard Breakdown</h2>
+
+    <h3 style="color: #1A5276;"> 1. Mobile Sales Overview (Main Dashboard)</h3>
+
+    <h4 style="color: #1F618D;">🔹 KPIs Displayed:</h4>
+    <ul>
+        <li><strong>Total Sales:</strong> Overall revenue.</li>
+        <li><strong>Total Quantity:</strong> Number of units sold.</li>
+        <li><strong>Transactions:</strong> Number of purchases.</li>
+        <li><strong>Average Price:</strong> Selling price per unit.</li>
+    </ul>
+
+    <h4 style="color: #1F618D;"> Key Visuals:</h4>
+    <ul>
+        <li> <strong>Total Sales by City:</strong> A map highlighting sales across different locations.</li>
+        <li> <strong>Sales Trend (Quantity by Month):</strong> A line chart depicting sales volume trends.</li>
+        <li> <strong>Ratings by Customer Feedback:</strong> A bar chart categorizing customer reviews.</li>
+        <li> <strong>Sales by Mobile Model:</strong> A bar chart comparing sales of different models.</li>
+        <li> <strong>Transactions by Payment Method:</strong> A pie chart analyzing payment preferences.</li>
+    </ul>
+
+<img src="mtdreport.PNG" 
+        alt="Commute Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h3 style="color: #1A5276;"> 2. Month-to-Date (MTD) Report</h3>
+        <ul>
+            <li> Displays sales growth for the current month with a cumulative line chart.</li>
+            <li> Helps identify peaks and dips in sales trends.</li>
+        </ul>
+    
+        <img src="sply.PNG" 
+        alt="Bike sale Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+        <h3 style="color: #1A5276;"> 3. Same Period Last Year (SPLY) Report</h3>
+        <ul>
+            <li> Compares quarterly and monthly sales with last year’s figures.</li>
+            <li> Highlights sales growth or decline using bar charts and tabular summaries.</li>
+        </ul>
+        <h3 style="color: #1A5276;"> Best Practices & Considerations</h3>
+        <ul>
+            <li>✔ <strong>Data Model Optimization:</strong> Maintain star schema for efficiency.</li>
+            <li>✔ <strong>Consistent Naming Conventions:</strong> Use clear and readable column names.</li>
+            <li>✔ <strong>Avoid Unnecessary Calculated Columns:</strong> Use measures where possible.</li>
+            <li>✔ <strong>User-Friendly Navigation:</strong> Use slicers for easy filtering.</li>
+            <li>✔ <strong>Performance Testing:</strong> Regularly check DAX queries and visuals for speed.</li>
+        </ul>
+    
+        <title> Business Problems Solved</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; color: #34495E; padding: 20px;">
+
+    <h2 style="color: #2C3E50;"> Business Problems Solved by This Project</h2>
+
+    <p>
+        The <strong>Mobile Sales Dashboard</strong> was developed to address key challenges in sales tracking, reporting, 
+        and decision-making. Below are the critical business problems and how the dashboard provides solutions:
+    </p>
+
+    <h3 style="color: #1A5276;">🔹 1. Lack of Centralized Sales Insights</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>Sales data was scattered across multiple spreadsheets and reports, making consolidation difficult.</li>
+        <li>Manual reporting led to delays, inconsistencies, and human errors.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> The dashboard integrates all sales data into a single interactive view.</li>
+        <li> Users can filter by <strong>mobile model, brand, payment method, or time period</strong> for precise insights.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 2. Inefficient Performance Tracking</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>Sales teams and executives lacked real-time insights or historical comparisons.</li>
+        <li>Decision-making was based on outdated or incomplete information.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> Tracks <strong>Total Sales, Quantity Sold, and Transactions</strong> in real time.</li>
+        <li> Provides <strong>Month-to-Date (MTD)</strong> and <strong>Year-over-Year (YoY)</strong> comparisons.</li>
+        <li> Clear trend analysis helps managers identify sales fluctuations and take action.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 3. Difficulty in Identifying Top & Low-Performing Products</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>No structured way to analyze which mobile models or brands perform well.</li>
+        <li>Stock allocation decisions were based on guesswork, leading to overstocking or stockouts.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> Sales breakdowns by <strong>city, brand, and model</strong> reveal top-performing and low-selling products.</li>
+        <li> Supports better <strong>inventory planning</strong> to ensure high-demand models are well-stocked.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 4. Limited Understanding of Customer Preferences</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>No insights into customer satisfaction with different mobile models and brands.</li>
+        <li>Marketing and sales decisions were not aligned with customer demand.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> The <strong>Ratings by Customer Satisfaction</strong> chart provides insights into product quality.</li>
+        <li> Enables businesses to adjust <strong>marketing strategies</strong> based on customer feedback.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 5. Lack of Payment Trend Analysis</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>No data on customer payment preferences.</li>
+        <li>Inefficient payment options could lead to lost sales opportunities.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> The dashboard tracks <strong>Transactions by Payment Method</strong> (UPI, Debit Card, Credit Card, Cash).</li>
+        <li> Helps businesses optimize payment options based on customer behavior.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 6. Manual & Time-Consuming Reporting</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>Sales reports had to be manually compiled every month, leading to delays and errors.</li>
+        <li>Analysts spent excessive time on data aggregation instead of insights.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> <strong>Automated reporting</strong> with Power BI eliminates manual work and ensures accuracy.</li>
+        <li> Reports update dynamically, <strong>saving time and improving efficiency</strong>.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;">🔹 7. Poor Visibility into Regional Sales Performance</h3>
+    <p><strong>Problem:</strong></p>
+    <ul>
+        <li>Regional managers lacked insights into city-wise sales contributions.</li>
+        <li>Resource allocation was not data-driven.</li>
+    </ul>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li> The <strong>Total Sales by City</strong> map provides a clear geographical breakdown.</li>
+        <li> Supports better <strong>regional marketing strategies and resource allocation</strong>.</li>
+    </ul>
+
+    <h3 style="color: #1A5276;"> Conclusion</h3>
+    <p>
+        This <strong>Mobile Sales Dashboard</strong> effectively addresses key business challenges by:
+        <ul>
+            <li> Automating reporting.</li>
+            <li> Improving sales tracking.</li>
+            <li> Enhancing data-driven decision-making.</li>
+        </ul>
+        It provides a real-time, interactive view of sales performance, helping businesses 
+        optimize inventory, identify trends, and increase profitability.
+    </p>
+    
+</body>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Gallery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Project Gallery</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+            body.dark-mode {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar.dark-mode {
+                background-color: #333;
+            }
+    
+            /* Card and Slider Hover Effects */
+            .project-container {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+            .project-container:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+    
+            /* Image Styling */
+            .project-card img,
+            .carousel-item img {
+                object-fit: cover;
+                height: 250px;
+                width: 100%;
+                border-radius: 5px;
+            }
+    
+            /* Smooth Slide Effect */
+            .carousel-item {
+                transition: transform 1s ease-in-out !important;
+            }
+    
+            /* View Details Button */
+            .view-details {
+                margin-top: 10px;
+            }
+    
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 15px;
+                margin-top: 30px;
+                background: #f8f9fa;
+            }
+            body.dark-mode footer {
+                background: #222;
+            }
+            /* Change the color of the previous and next buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    border-radius: 50%;
+    padding: 10px;
+}
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.dropdown.show .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+.nav-item button {
+    position: absolute;
+    right: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+    
+    <!-- Navbar -->
+    <button onclick="history.back()" class="btn back-button">
+        ← Return Back
+    </button>
+</div>
+</nav>
+
+<h1 style="
+font-size: 36px; 
+text-align: center; 
+font-weight: bold; 
+margin-top: 20px; 
+color: #4A90E2; /* A nice modern blue */
+">
+Tableau Projects Showcase 
+</h1>
+
+<style>
+/* Updated button styles */
+.back-button {
+    background-color: #61afef;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #4a90d9;
+    transform: scale(1.05);
+}
+
+/* Ensure heading is below navbar */
+.main-heading {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+</style>
+
+    <!-- Filters Section -->
+<section class="filters">
+<select id="filterType" onchange="navigateToPage()">
+<option disabled selected>Select Category</option>
+<option value="excelprojects.html">EXCEL</option>
+<option value="powerbiprojects.html">POWER BI</option>
+<option value="sqlprojects.html">SQL</option>
+<option value="tableauprojects.html">TABLEAU</option>
+</select>
+</section>
+
+<style>
+/* Filters Styling */
+.filters {
+text-align: center; /* Centering for all devices */
+margin-top: 20px;
+}
+
+.filters select {
+padding: 10px;
+font-size: 16px;
+border-radius: 5px;
+border: 1px solid #ccc;
+width: auto;
+}
+
+/* Center on small screens */
+@media (max-width: 768px) {
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters select {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Prevents it from being too wide */
+}
+}
+</style>
+                       
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+                    
+                    
+                    
+    
+    <!-- Project Gallery -->
+    <div class="container my-4">
+        <div class="row g-4">
+    
+            <!-- 1st Project (Slider) -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="project-container">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="customer_analysis_dashboard.PNG" alt="Slide 1" style="width: 100%; height: auto;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="sales_performance_dashboard.PNG" alt="Slide 2" style="width: 100%; height: auto;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="weeklytrend.PNG" alt="Slide 3" style="width: 100%; height: auto;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="subcategorycomparison.PNG" alt="Slide 4" style="width: 100%; height: auto;">
+                            </div>
+                             
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <h5 class="card-title">Sales & Customer Trends Dashboard</h5>
+                    <a href="saletableu.html" class="btn btn-primary w-100 view-details">View Details</a>
+                </div>
+            </div>
+    
+            <!-- 2nd Project (Static Card) -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card project-container">
+                    <img src="dashboard.PNG" class="card-img-top" alt="Project 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Human Resource Dashboard</h5>
+                        <a href="hrtableau.html" class="btn btn-primary w-100 view-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- 3rd Project (Static Card) -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card project-container">
+                    <img src="British_Airways_Dashboard.PNG" class="card-img-top" alt="Project 3">
+                    <div class="card-body">
+                        <h5 class="card-title">British Airways Dashboard</h5>
+                        <a href="airwaystableau.html" class="btn btn-primary w-100 view-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- 4th Project (Static Card) -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card project-container">
+                    <img src="kingcountry.PNG" class="card-img-top" alt="Project 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Washington House Sales Dashboard
+                        </h5>
+                        <a href="kingcountry.html" class="btn btn-primary w-100 view-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+    </html>
+    
+
+<!-- Footer -->
+<footer class="text-center py-3 bg-light">
+    <p>&copy; 2025 Project Gallery. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+        const navbar = document.getElementById("navbar");
+
+        // Load saved theme
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            navbar.classList.add("dark-mode");
+            darkModeToggle.innerText = "Light Mode";
+        }
+
+        // Toggle Dark Mode
+        darkModeToggle.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
+            navbar.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.innerText = "Light Mode";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.innerText = "Dark Mode";
+            }
+        });
+    });
+    
+function navigateToPage() {
+    var filter = document.getElementById("filterType").value;
+    window.location.href = filter;  // Redirects to the selected page
+}
+</script>
+
+
+</body>
+</html>

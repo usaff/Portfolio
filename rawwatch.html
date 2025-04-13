@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sales Performance Tracker</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #edede9;
+            
+            border-radius: 12px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: left;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            text-decoration: underline;
+        text-align: center;
+        }
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #333;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        p, ul {
+            font-size: 16px;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }/* Responsive Image */
+.responsive-img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+.closing-message {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Code Block Styling */
+        pre {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;  /* Enables horizontal scrolling */
+        white-space: pre-wrap; /* Ensures long lines wrap */
+        word-wrap: break-word; /* Breaks words properly on small screens */
+        font-size: 14px;
+    }
+    
+    code {
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        pre {
+            font-size: 13px; /* Slightly smaller text for mobile */
+            padding: 12px;
+        }
+    }
+    </style>
+</head>
+<section class="project-details">
+    <section class="project-details">
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="back-button">
+                ← Return Back
+            </button>
+        </nav>
+        
+        <style>
+            /* Navigation Bar to Hold Button */
+            .nav-bar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+                padding: 10px 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        
+            /* Back Button Styling */
+            .back-button {
+                background-color: #61afef;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: 20px; /* Adds spacing from the left */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .back-button:hover {
+                background-color: #4b8ec9;
+                transform: scale(1.05);
+            }
+        
+            /* Ensure Body has Padding to Prevent Overlap */
+            body {
+                padding-top: 70px; /* Creates space so button does not overlap h1 */
+            }
+        
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .back-button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .back-button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                    width: auto;
+                    margin-left: 10px;
+                }
+            }
+        </style>
+<body>
+
+<div class="container">
+
+    <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<h3 style="
+font-family: 'Poppins', sans-serif;
+text-align: center;
+font-size: 38px;
+margin-top: 15px;
+font-weight: bold;
+background: linear-gradient(90deg, #ff5733, #ff9800);
+color: #ff5733; /* Fallback color */
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+">
+<i class="bi bi-bar-chart-line-fill" style="font-size: 30px; color: #ff5733;"></i>
+Sales Performance Tracker & Growth Analysis
+<i class="bi bi-graph-up-arrow" style="font-size: 30px; color: #ff9800;"></i>
+</h3>
+
+
+
+    <h2> Dashboard Insights & Image</h2>
+    <p>The dashboard provides key insights, including:</p>
+    <ul>
+        <li> <strong>Sales Growth:</strong> Year-over-year comparison of sales data.</li>
+        <li> <strong>Segment Performance:</strong> Sales trends across different business segments.</li>
+        <li> <strong>Order Trends:</strong> Monthly breakdown of order volumes.</li>
+        <li> <strong>Budget vs. Actual Sales:</strong> Helps in financial planning.</li>
+    </ul>
+
+    <h3> Main Components:</h3>
+    <ul>
+        <li>✔ <strong>Bar Charts:</strong> Sales breakdown by segment and monthly sales.</li>
+        <li>✔ <strong>KPI Cards:</strong> Key sales metrics (YTD sales, budget, growth percentage).</li>
+        <li>✔ <strong>Pie Charts:</strong> Category and segment growth rates.</li>
+        <li>✔ <strong>Interactivity:</strong> Filters and drill-downs for deeper analysis.</li>
+    </ul>
+
+    <p><strong> Dashboard Preview:</strong></p>
+    <img src="performancetracker.PNG" alt="Dashboard Preview" class="responsive-img">
+    
+    </p>
+
+    <h2> Preprocessing Steps</h2>
+    <ul>
+        <li> Removed duplicate entries and missing values.</li>
+        <li> Converted date fields for accurate time-based analysis.</li>
+        <li> Categorized sales into segments and categories for better insights.</li>
+    </ul>
+
+    <h2> DAX Formulas Explanations</h2>
+
+    <h3> Sales Calculations</h3>
+
+    <h4>Total Sales</h4>
+    <pre><code>Total_Sales = SUM(Orders[Sales])</code></pre>
+    <p><strong>Explanation:</strong> Adds up all the sales values from the Orders table. Used to calculate overall revenue.</p>
+
+    <h4>Current Year Sales</h4>
+    <pre><code>Current_Year_Sales = CALCULATE(SUM(Orders[Sales]), DATESYTD(Orders[Order Date]))</code></pre>
+    <p><strong>Explanation:</strong> Calculates total sales for the current year using DATESYTD for the year-to-date period.</p>
+
+    <h4>Previous Year Sales</h4>
+    <pre><code>Previous_Year_Sales = CALCULATE(SUM(Orders[Sales]), YEAR(Orders[Order Date]) = 2021)</code></pre>
+    <p><strong>Explanation:</strong> Fetches total sales for the previous year. Helps in year-over-year growth calculations.</p>
+
+    <h4>Sales Growth (%)</h4>
+    <pre><code>Sales_Growth = DIVIDE(([Current_Year_Sales] - [Previous_Year_Sales]), [Previous_Year_Sales])</code></pre>
+    <p><strong>Explanation:</strong> Measures the percentage increase or decrease in sales. Formula:  
+    (Current Sales - Previous Sales) / Previous Sales.</p>
+
+    <h3> Category & Segment Assignments</h3>
+
+    <h4>Category Switch Formula</h4>
+    <pre><code>Category_Switch = 
+VAR cate = SELECTEDVALUE(Orders[Category])
+VAR _type = SWITCH(TRUE(), 
+    cate = "Office Supplies", "Digital Watch", 
+    cate = "Furniture", "Analog Watch", 
+    cate = "Technology", "Other")
+RETURN _type</code></pre>
+    <p><strong>Explanation:</strong> Assigns custom product types based on their category. Ensures consistency in reporting.</p>
+
+    <h4>Segment Switch Formula</h4>
+    <pre><code>New_Categ = 
+VAR cate = New_Segment[Segment]
+VAR _type = SWITCH(cate, 
+    "Consumer", "Digital Watch", 
+    "Home Office", "Analog Watch", 
+    "Corporate", "Mechanical Watch")
+RETURN _type</code></pre>
+    <p><strong>Explanation:</strong> Maps different business segments to specific watch types.</p>
+
+    <h2>5 Features & Functionality</h2>
+    <ul>
+        <li>🔹 <strong>Dynamic Filters & Slicers:</strong> Allow users to filter by year, segment, and category.</li>
+        <li>🔹 <strong>Drill-Through Analysis:</strong> Click on data points for more detailed insights.</li>
+        <li>🔹 <strong>Yearly Comparisons:</strong> Easily track sales performance over time.</li>
+        <li>🔹 <strong>Automated KPI Updates:</strong> Metrics update dynamically based on filters.</li>
+    </ul>
+    <section class="challenges-learnings">
+        <h2> Challenges</h2>
+        <ul>
+            <li> Optimizing DAX Performance for large datasets.</li>
+            <li> Handling missing or inconsistent data in source files.</li>
+            <li> Ensuring accurate date-based calculations.</li>
+        </ul>
+    
+        <h2> Key Learnings</h2>
+        <ul class="key-learnings">
+            <li> Leveraging CALCULATE & DATESYTD for time intelligence.</li>
+            <li> Using SWITCH function for efficient category assignments.</li>
+            <li> Importance of data preprocessing for accurate insights.</li>
+        </ul>
+    </section>
+    <section class="future-improvements">
+        <h2>8 Future Improvements</h2>
+        <ul>
+            <li> <strong>Add Predictive Analytics:</strong> Implement forecasting models.</li>
+            <li> <strong>More Drill-Downs:</strong> Improve interactivity for granular analysis.</li>
+            <li> <strong>Real-Time Data Updates:</strong> Connect to a live database for instant reporting.</li>
+            <li> <strong>Mobile Optimization:</strong> Ensure usability on smaller screens.</li>
+            <li> <strong>AI-Powered Insights:</strong> Integrate AI models for automated trend detection.</li>
+            <li> <strong>Cloud Integration:</strong> Deploy on cloud platforms like AWS or Azure.</li>
+        </ul>
+    </section>
+
+    <p class="closing-message">✨ Thank you for exploring this project! Feel free to contribute, improve, or share feedback. </p>
+</div>
+
+
+</body>
+</html>

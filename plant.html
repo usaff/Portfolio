@@ -1,0 +1,423 @@
+<head>
+    <title> Plant Co. Gross Profit Performance Dashboard</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+    background-color: #edede9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: none; /* Remove unwanted shadow */
+    margin: 0 auto 50px; /* Adjust margin */
+    max-width: 1100px;
+    font-family: 'Kanit', sans-serif;
+}
+
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif;
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+</section>
+      
+<!-- Project Details Section -->
+<section class="project-details">
+    <section class="project-details">
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="back-button">
+                ← Return Back
+            </button>
+        </nav>
+        
+        <style>
+            /* Navigation Bar to Hold Button */
+            .nav-bar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+                padding: 10px 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        
+            /* Back Button Styling */
+            .back-button {
+                background-color: #61afef;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: 20px; /* Adds spacing from the left */
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .back-button:hover {
+                background-color: #4b8ec9;
+                transform: scale(1.05);
+            }
+        
+            /* Ensure Body has Padding to Prevent Overlap */
+            body {
+                padding-top: 70px; /* Creates space so button does not overlap h1 */
+            }
+        
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .back-button {
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                .back-button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                    width: auto;
+                    margin-left: 10px;
+                }
+            }
+        </style>
+        
+        <body>
+        
+            <section class="project-details">
+                <link rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+          
+          <h3 style="
+              font-family: 'Poppins', sans-serif;
+              text-align: center;
+              font-size: 38px;
+              margin-top: 15px;
+              font-weight: bold;
+              background: linear-gradient(90deg, #4CAF50, #2E7D32);
+              color: #4CAF50; /* Fallback color */
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+          ">
+              <i class="bi bi-flower1" style="font-size: 30px; color: #4CAF50;"></i>
+              Plant Co. Gross Profit Performance Dashboard
+              <i class="bi bi-bar-chart-line-fill" style="font-size: 30px; color: #2E7D32;"></i>
+          </h3>
+  <div class="container">
+
+    
+        <h2>Overview</h2>
+        <p>This Power BI report provides insights into Plant Co.'s Gross Profit Performance for the year 2023, helping stakeholders understand profitability trends across different months, countries, and product categories.</p>
+    
+        <h2>Purpose of the Project</h2>
+        <p>The primary purpose of this project is to analyze year-to-date (YTD) gross profit, compare it to the prior year-to-date (PYTD), and segment profitability by country, product type, and other dimensions.</p>
+        <h2 style="color: black; font-family: Arial, sans-serif;"> Business Problems Solved</h2>
+
+        <ul style="font-family: Arial, sans-serif; color: black;">
+            <li><strong>Identifies Profit Performance by Country:</strong> Highlights countries with the highest and lowest profitability.</li>
+            <li><strong>Year-to-Date (YTD) vs Prior Year-to-Date (PYTD):</strong> Compares current year performance with the previous year.</li>
+            <li><strong>Monthly Gross Profit Trends:</strong> Tracks gross profit fluctuations over time.</li>
+            <li><strong>Profitability Segmentation:</strong> Analyzes Gross Profit Percentage (GP%) and total gross profit to highlight key insights.</li>
+        </ul>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li>Dynamic titles and visuals reflecting selected filters.</li>
+            <li>Comparison of YTD vs. PYTD for Gross Profit, Sales, and Quantity.</li>
+            <li>Profitability segmentation by GP%.</li>
+        </ul>
+        <h2 style="color: black; font-family: Arial, sans-serif;"> Steps Taken</h2>
+
+        <h3 style="color: black; font-family: Arial, sans-serif;"> 1. Data Preparation & Transformation</h3>
+        <ul style="font-family: Arial, sans-serif; color: black;">
+            <li>Imported sales and profit data from Plant Co.’s internal financial system.</li>
+            <li>Cleaned and standardized data using Power Query:</li>
+            <ul>
+                <li>Removed duplicates.</li>
+                <li>Formatted date fields for time-based analysis.</li>
+                <li>Handled missing values by applying default values or interpolations.</li>
+            </ul>
+        </ul>
+        
+        <h3 style="color: black; font-family: Arial, sans-serif;"> 2. Data Modeling</h3>
+        <ul style="font-family: Arial, sans-serif; color: black;">
+            <li>Established relationships between Sales, Product, Country, and Date tables.</li>
+            <li>Used Star Schema for optimized performance.</li>
+            <li>Created calculated columns for additional insights (e.g., YTD vs PYTD Gross Profit).</li>
+        </ul>
+        
+        <h3 style="color: black; font-family: Arial, sans-serif;"> 3. Data Visualization</h3>
+        <ul style="font-family: Arial, sans-serif; color: black;">
+            <li>Designed interactive dashboards using:</li>
+            <ul>
+                <li><strong>Tree Map:</strong> Highlights bottom 10 countries in terms of YTD vs PYTD performance.</li>
+                <li><strong>Waterfall Chart:</strong> Shows the breakdown of monthly profit changes.</li>
+                <li><strong>Bar Chart:</strong> Displays monthly Gross Profit (YTD vs PYTD) for different product types.</li>
+                <li><strong>Scatter Plot:</strong> Analyzes the relationship between Gross Profit % and Total Gross Profit across different accounts.</li>
+                <li><strong>KPI Cards:</strong> Summarize key metrics: YTD Gross Profit, PYTD Gross Profit, and GP%.</li>
+            </ul>
+        </ul>
+        <h3 style="color: #2980B9; font-family: Arial, sans-serif;">Dashboards preview:</h3>
+        <img src="Plant co. Gross Profit Performance Dashboard.PNG" 
+        alt=" Dashboard" 
+        style="width: 80%; max-width: 600px; border-radius: 15px; 
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+               transition: transform 0.3s ease-in-out; 
+               display: block; margin: 20px auto;"
+        onmouseover="this.style.transform='scale(1.05)'" 
+        onmouseout="this.style.transform='scale(1)'">
+       
+
+        <style>
+            /* General Styling */
+            .formula-section {
+                max-width: 100%;
+                padding: 20px;
+            }
+        
+            h2, h3, h4 {
+                font-family: Arial, sans-serif;
+                text-align: left;
+                color: black;
+            }
+        
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+        
+            h3 {
+                font-size: 1.3rem;
+                margin-top: 20px;
+            }
+        
+            h4 {
+                font-size: 1.1rem;
+                margin-top: 15px;
+            }
+        
+            p {
+                font-family: Arial, sans-serif;
+                color: black;
+                font-size: 1rem;
+                text-align: left;
+                margin-top: 5px;
+            }
+        
+            /* Code Blocks */
+            .code-block {
+                background-color: #F4F4F4;
+                padding: 15px;
+                border-left: 4px solid black;
+                font-size: 1rem;
+                font-family: Consolas, "Courier New", monospace;
+                text-align: left;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                overflow-x: auto;
+                display: block;
+            }
+        
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                h2 {
+                    font-size: 1.5rem;
+                }
+        
+                h3 {
+                    font-size: 1.2rem;
+                }
+        
+                .code-block {
+                    font-size: 0.9rem;
+                    padding: 12px;
+                }
+        
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        </style>
+        
+        <div class="formula-section">
+            <h2>DAX Formulas and Dynamic Calculations</h2>
+            <p>These DAX formulas enable dynamic calculations and title generation for the Plant Co. Gross Profit Performance Dashboard.</p>
+        
+            <h3>Dynamic Titles</h3>
+            <p>Enhancing user experience by reflecting selected filters dynamically.</p>
+        
+            <h4>🔹 Column Chart Title</h4>
+            <pre class="code-block">
+        SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month"
+            </pre>
+            <p>✔ Displays the selected metric with "YTD vs PYTD" by Month.</p>
+        
+            <h4>🔹 Report Title</h4>
+            <pre class="code-block">
+        "Plant Co. Performance " & SELECTEDVALUE(Slc_Values[Values]) & " Performance " & SELECTEDVALUE(Dim_Date[Date].[Year])
+            </pre>
+            <p>✔ Dynamically updates the report title.</p>
+        
+            <h4>🔹 Scatter Chart Title</h4>
+            <pre class="code-block">
+        "Account Profitability segmentation | GP% and " & SELECTEDVALUE(Slc_Values[Values])
+            </pre>
+            <p>✔ Highlights the relationship between GP% and the selected metric.</p>
+        
+            <h4>🔹 Waterfall Chart Title</h4>
+            <pre class="code-block">
+        SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month - Country - Product"
+            </pre>
+            <p>✔ Displays a breakdown by Month, Country, and Product.</p>
+        
+            <h3>Key Performance Metrics</h3>
+        
+            <h4>🔹 Gross Profit Percentage (GP%)</h4>
+            <pre class="code-block">
+        GP% = DIVIDE([Gross Profit], [Sales])
+            </pre>
+            <p>✔ Calculates the profitability ratio.</p>
+        
+            <h4>🔹 PYTD Gross Profit</h4>
+            <pre class="code-block">
+        PYTD_GrossProfit = CALCULATE([Gross Profit], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+            </pre>
+            <p>✔ Retrieves Gross Profit from the corresponding period last year.</p>
+        
+            <h4>🔹 PYTD Quantity and Sales</h4>
+            <pre class="code-block">
+        PYTD_Quantity = CALCULATE([Quantity], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+        PYTD_Sales = CALCULATE([Sales], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+            </pre>
+            <p>✔ Ensures accurate year-over-year comparisons.</p>
+        
+            <h4>🔹 Switching Contexts for YTD and PYTD</h4>
+            <pre class="code-block">
+        S_YTD = SWITCH(Selected_Values, 
+            "Sales", [YTD_Sales], 
+            "Quantity", [YTD_Quantity], 
+            "Gross Profit", [YTD_GrossProfit], 
+            BLANK()
+        )
+            </pre>
+            <p>✔ Enables dynamic selection of metrics for better interactivity.</p>
+        
+            <h4>🔹 YTD vs PYTD Comparison</h4>
+            <pre class="code-block">
+        YTD vs PYTD = [S_YTD] - [S_PYTD]
+            </pre>
+        </div>
+        
+        <p style="font-family: Arial, sans-serif; color: black;">
+        ✔ Measures variance to track growth or decline over time.
+        </p>
+        
+
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Power BI for data visualization and report generation.</li>
+            <li>DAX (Data Analysis Expressions) for dynamic calculations and titles.</li>
+        </ul>
+    
+        <h2>Data Source</h2>
+        <p>Data sourced from <a href="https://www.youtube.com/@mo-chen" target="_blank">Mo Chen YouTube Channel</a></p>
+    
+    
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Incorporate additional metrics for comprehensive analysis.</li>
+            <li>Improve performance optimization for large data sets.</li>
+        </ul>
+    
+       
+        <h2>Conclusion</h2>
+        <p>These DAX formulas provide a robust analytical framework, enabling dynamic reporting and insightful visualizations. By using dynamic titles, calculating key metrics, and switching contexts seamlessly, this dashboard supports Plant Co.'s profitability and growth objectives.</p>
+    
+        <p>If you need additional customizations or further explanations, feel free to ask!</p>
+    </body>
+</section>
+
